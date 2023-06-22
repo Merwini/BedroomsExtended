@@ -49,10 +49,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RoomDesireDefOf.cs" />
     <Compile Include="Comps\CompPersonalizedBedroom.cs" />
     <Compile Include="Comps\CompProperties_PersonalizedBedroom.cs" />
     <Compile Include="Mod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoomDesireDef.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="TODO list.txt" />
