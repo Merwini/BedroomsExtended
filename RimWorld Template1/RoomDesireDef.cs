@@ -14,5 +14,11 @@ namespace nuff.PersonalizedBedrooms
         List<ThingDef> satisfyingThings;
 
         QualityCategory minimumQuality;
+
+        List<TraitDef> associatedTraits;
+
+        List<GeneDef> associatedGenes;
+
+        List<RoyalTitleDef> associatedTitles;
     }
 }

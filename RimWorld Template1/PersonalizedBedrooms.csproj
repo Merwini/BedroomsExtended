@@ -49,6 +49,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LinkGenesWithDesires.cs" />
+    <Compile Include="LinkMemesWithDesires.cs" />
+    <Compile Include="LinkTitlesWithDesires.cs" />
+    <Compile Include="LinkTraitsWithDesires.cs" />
     <Compile Include="RoomDesireDefOf.cs" />
     <Compile Include="Comps\CompPersonalizedBedroom.cs" />
     <Compile Include="Comps\CompProperties_PersonalizedBedroom.cs" />

@@ -12,16 +12,19 @@ Change vanilla room traits to use new moodlet system
 	Greedy - Requires an extra desire option to be met per each tier (4/5?)
 	Jealous - Unhappy if anyone has a higher moodlet tier
 	Ascetic - will use a separate set of desires? 
-Custom traits
-	Picky - will generate fewer desire options at each tier (3/4?)
-	Very Picky - will generate even fewer desire options (3/3?)
-	Easygoing - will generate more desire options at each tier (3/6?)
-	Very Easygoing - even more (3/7?)
+Custom traits and/or genes
+	fewer desire slots per tier
+	more desire slots per tier
+	fewer desire options per tier
+	more desire options per tier
 Make a Def for room desires, so they are xml-configured
 	Mood tier
 	upgradesFrom
 	upgradesTo
 Make a Debug tool to regenerate a pawn's desires
+
+Display cases, with custom float menu option for objects to place in a targeted display case?
+	maybe not worth it
 
 
 Ideas for desires (vanilla has 8 moodlets for bedroom, ranging from -4 to +8):
@@ -39,6 +42,7 @@ Ideas for desires (vanilla has 8 moodlets for bedroom, ranging from -4 to +8):
 		nothing
 
 	Tier 1 (0):
+		Bedroom
 		An actual bed
 		Floored
 
