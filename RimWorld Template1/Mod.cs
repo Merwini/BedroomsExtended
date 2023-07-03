@@ -14,7 +14,7 @@ namespace nuff.PersonalizedBedrooms
     {
         public PersonalizedBedrooms(ModContentPack content) : base(content)
         {
-
+            //todo
         }
 
         public override string SettingsCategory()

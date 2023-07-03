@@ -9,6 +9,7 @@ using Verse;
 
 namespace nuff.PersonalizedBedrooms
 {
+    //todo
     public class RoomDesireDef : Def
     {
         List<ThingDef> satisfyingThings;

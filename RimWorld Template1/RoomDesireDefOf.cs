@@ -5,6 +5,6 @@ namespace nuff.PersonalizedBedrooms
     [DefOf]
     class RoomDesireDefOf
     {
-
+        //todo
     }
 }

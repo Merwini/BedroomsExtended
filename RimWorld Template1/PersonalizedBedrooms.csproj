@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="0Harmony, Version=2.2.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lib.Harmony.2.2.2\lib\net472\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
@@ -49,10 +53,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Gizmo_DesireTracker.cs" />
     <Compile Include="LinkGenesWithDesires.cs" />
     <Compile Include="LinkMemesWithDesires.cs" />
     <Compile Include="LinkTitlesWithDesires.cs" />
     <Compile Include="LinkTraitsWithDesires.cs" />
+    <Compile Include="NPBHarmonyPatchs.cs" />
+    <Compile Include="RoomDesire.cs" />
     <Compile Include="RoomDesireDefOf.cs" />
     <Compile Include="Comps\CompPersonalizedBedroom.cs" />
     <Compile Include="Comps\CompProperties_PersonalizedBedroom.cs" />
@@ -62,6 +69,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="TODO list.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

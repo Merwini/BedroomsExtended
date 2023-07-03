@@ -13,6 +13,7 @@ namespace nuff.PersonalizedBedrooms
     {
         static LinkMemesWithDesires()
         {
+            //todo
             //on startup, check if Ideology is active
             //if it is, check each RoomDesireDef for associated memes
             //if it has an associated meme, add the meme to the disctionary as a key, add the desire to that key's list value

@@ -13,6 +13,7 @@ namespace nuff.PersonalizedBedrooms
     {
         static LinkTraitsWithDesires()
         {
+            //todo
             //on startup, check all RoomDesireDefs for associated traits
             //if it has an associated trait, add the trait to the dictionary as a key, and add the desire to the associated value list
         }
