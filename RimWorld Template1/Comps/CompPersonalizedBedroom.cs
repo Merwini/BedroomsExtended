@@ -52,6 +52,9 @@ namespace nuff.PersonalizedBedrooms
 
         public void activateGeneDesires()
         {
+            if (ModsConfig.BiotechActive)
+                return;
+
             //select as many gene-associated desires as possible for each desire tier
             //will require BioTech
             //maybe this takes priority over Trait desires?
@@ -59,12 +62,18 @@ namespace nuff.PersonalizedBedrooms
 
         public void activateIdeoDesires()
         {
+            if (!ModsConfig.IdeologyActive)
+                return;
+
             //select as many ideologion-associated desires as possible for each desire tier
             //will require Ideology
         }
 
         public void activateTitleDesires()
         {
+            if (!ModsConfig.RoyaltyActive)
+                return;
+
             //select as many royalty title-associated desires as possible for each desire tier
             //will require royalty
             //higher titles will probably raise the desire slots for each tier
