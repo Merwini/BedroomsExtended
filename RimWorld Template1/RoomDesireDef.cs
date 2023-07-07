@@ -12,14 +12,16 @@ namespace nuff.PersonalizedBedrooms
     //todo
     public class RoomDesireDef : Def
     {
-        List<ThingDef> satisfyingThings;
+        public List<ThingDef> satisfyingThings;
 
-        QualityCategory minimumQuality;
+        public QualityCategory minimumQuality;
 
-        List<TraitDef> associatedTraits;
+        public List<TraitDef> associatedTraits;
 
-        List<GeneDef> associatedGenes;
+        public List<GeneDef> associatedGenes;
 
-        List<RoyalTitleDef> associatedTitles;
+        public List<RoyalTitleDef> associatedTitles;
+
+        public int desireTier;
     }
 }

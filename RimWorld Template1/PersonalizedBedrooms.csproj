@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DesiresByTier.cs" />
     <Compile Include="Gizmo_DesireTracker.cs" />
     <Compile Include="LinkGenesWithDesires.cs" />
     <Compile Include="LinkMemesWithDesires.cs" />
