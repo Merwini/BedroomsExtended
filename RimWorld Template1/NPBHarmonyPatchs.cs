@@ -7,6 +7,7 @@ using Verse;
 using RimWorld;
 using HarmonyLib;
 using System.Reflection;
+using System.Reflection.Emit;
 
 namespace nuff.PersonalizedBedrooms
 {
@@ -40,15 +41,27 @@ namespace nuff.PersonalizedBedrooms
                         break;
                     }
 
-                    if (foundEndIndex)
+                    if (codes[i].opcode == OpCodes.Ldsfld
+                        && codes[i].operand.ToString().Contains("Impressiveness"))
                     {
                         //todo
+                        startIndex = i;
+                        foundStartIndex = true;
+                        continue;
                     }
 
-                    if (!foundEndIndex)
+                    if (foundStartIndex)
                     {
-                        endIndex = i;
-                        foundEndIndex = true;
+                        for (int j = i; j < codes.Count; j++)
+                        {
+                            if (codes[j].opcode == OpCodes.Callvirt
+                                && codes[j].operand.ToString().Contains("GetScoreStageIndex"))
+                            {
+                                endIndex = j;
+                                foundEndIndex = true;
+                                break;
+                            }
+                        }
                         continue;
                     }
                 }
@@ -57,8 +70,15 @@ namespace nuff.PersonalizedBedrooms
                 {
                     //make new instructions
                     List<CodeInstruction> newCodes = new List<CodeInstruction>();
+                    //load Pawn on stack
+                    newCodes.Add(new CodeInstruction(OpCodes.Ldarg_0));
+                    //load Bed on stack
+                    newCodes.Add(new CodeInstruction(OpCodes.Ldarg_1));
+                    //call helper method, will return an int
+                    newCodes.Add(new CodeInstruction(OpCodes.Call, methodHelper));
+                    //next CodeInstruction should be stloc.s 6 from vanilla instructions, which will use the int the helper method returns
 
-                    //remove old instions
+                    //remove old instructions
                     codes.RemoveRange(startIndex, (endIndex - startIndex + 1));
 
                     //insert new instructions
@@ -69,9 +89,18 @@ namespace nuff.PersonalizedBedrooms
             }
         }
 
-        public static void Toils_LayDown_ApplyBedThoughts_Helper()
+        public static int Toils_LayDown_ApplyBedThoughts_Helper(Pawn actor, Building_Bed bed)
         {
+            CompPersonalizedBedroom comp = actor.TryGetComp<CompPersonalizedBedroom>();
+            if (comp == null)
+            {
+                CompPersonalizedBedroom newComp = new CompPersonalizedBedroom();
+                actor.AllComps.Add(newComp);
+                comp = newComp;
+                comp.Initialize(new CompProperties_PersonalizedBedroom());
+            }
 
+            return comp.returnThoughtStage(bed);
         }
     }
 }

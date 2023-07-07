@@ -25,12 +25,20 @@ namespace nuff.PersonalizedBedrooms
         {
             base.Initialize(props);
             //cache pawn traits
-            //fill desire slots
+            //compute possibleDesires
+            //select activeDesires
         }
 
         public void ReInitialize()
         {
             //todo
+        }
+
+        public int returnThoughtStage(Building_Bed bed)
+        {
+            int scoreStageIndex = 0;
+            //logic
+            return scoreStageIndex;
         }
 
         public void checkIfTraitsChanged()

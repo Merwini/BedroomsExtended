@@ -13,6 +13,5 @@ namespace nuff.PersonalizedBedrooms
         {
             compClass = typeof(CompPersonalizedBedroom);
         }
-
     }
 }

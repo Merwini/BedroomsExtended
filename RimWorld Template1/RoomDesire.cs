@@ -9,5 +9,7 @@ namespace nuff.PersonalizedBedrooms
     class RoomDesire
     {
         //todo
+
+        RoomDesireDef def;
     }
 }
