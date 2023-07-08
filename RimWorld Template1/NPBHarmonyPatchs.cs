@@ -100,7 +100,7 @@ namespace nuff.PersonalizedBedrooms
                 comp.Initialize(new CompProperties_PersonalizedBedroom());
             }
 
-            return comp.returnThoughtStage(bed);
+            return comp.ReturnThoughtStage(bed);
         }
     }
 }

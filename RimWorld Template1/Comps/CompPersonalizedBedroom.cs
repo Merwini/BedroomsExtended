@@ -12,6 +12,8 @@ namespace nuff.PersonalizedBedrooms
     {
         CompProperties_PersonalizedBedroom Props => props as CompProperties_PersonalizedBedroom;
 
+        public RoomDesireSet roomDesireSet;
+
         public HashSet<RoomDesireDef> possibleDesires;
         public HashSet<RoomDesireDef> activeDesires;
 
@@ -23,30 +25,22 @@ namespace nuff.PersonalizedBedrooms
         public override void Initialize(CompProperties props)
         {
             base.Initialize(props);
-
-            //cache pawn traits
-            //compute possibleDesires
-            //select activeDesires
+            roomDesireSet = new RoomDesireSet(this.parent as Pawn);
         }
 
-        public void ReInitialize()
-        {
-            //todo
-        }
-
-        public int returnThoughtStage(Building_Bed bed)
+        public int ReturnThoughtStage(Building_Bed bed)
         {
             int scoreStageIndex = 0;
             //logic
             return scoreStageIndex;
         }
 
-        public void activateTraitDesires()
+        public void ActivateTraitDesires()
         {
             //select as many trait-associated desires as possible for each desire tier
         }
 
-        public void activateGeneDesires()
+        public void ActivateGeneDesires()
         {
             if (ModsConfig.BiotechActive)
                 return;
@@ -56,7 +50,7 @@ namespace nuff.PersonalizedBedrooms
             //maybe this takes priority over Trait desires?
         }
 
-        public void activateIdeoDesires()
+        public void ActivateIdeoDesires()
         {
             if (!ModsConfig.IdeologyActive)
                 return;
@@ -65,7 +59,7 @@ namespace nuff.PersonalizedBedrooms
             //will require Ideology
         }
 
-        public void activateTitleDesires()
+        public void ActivateTitleDesires()
         {
             if (!ModsConfig.RoyaltyActive)
                 return;
@@ -75,7 +69,7 @@ namespace nuff.PersonalizedBedrooms
             //higher titles will probably raise the desire slots for each tier
         }
 
-        public void activateGenericDesires()
+        public void ActivateGenericDesires()
         {
             //fill remaining desire slots for each desire tier with generic desires
         }
