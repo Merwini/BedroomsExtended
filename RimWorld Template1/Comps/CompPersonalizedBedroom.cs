@@ -12,15 +12,16 @@ namespace nuff.PersonalizedBedrooms
     {
         CompProperties_PersonalizedBedroom Props => props as CompProperties_PersonalizedBedroom;
 
-        public RoomDesireSet roomDesireSet;
+        private RoomDesireSet roomDesireSet;
 
-        public HashSet<RoomDesireDef> possibleDesires;
-        public HashSet<RoomDesireDef> activeDesires;
+        private HashSet<RoomDesireDef> possibleDesires;
+        private HashSet<RoomDesireDef> activeDesires;
 
 
         public int desireSlots;
 
-        public int cachedBedroomWealth = -1;
+        public float cachedBedroomWealth = -1;
+        public int cachedThoughtStage = -1;
 
         public override void Initialize(CompProperties props)
         {
@@ -30,8 +31,15 @@ namespace nuff.PersonalizedBedrooms
 
         public int ReturnThoughtStage(Building_Bed bed)
         {
-            int scoreStageIndex = 0;
-            //logic
-            return scoreStageIndex;
+            //only need to recalculate ThoughtStage, which is expensive, if the room wealth has changed i.e. room contents have changed
+            //edge case of room contents changing w/o changing wealth seems insignifcant at this time
+            float currentBedroomWealth = bed.GetRoom().GetStat(RoomStatDefOf.Wealth);
+            if (currentBedroomWealth != cachedBedroomWealth)
+            {
+                cachedThoughtStage = roomDesireSet.GetScoreStage(bed.GetRoom());
+                cachedBedroomWealth = currentBedroomWealth;
+            }
+            return cachedThoughtStage;
         }
+    }
 }

@@ -81,6 +81,13 @@ namespace nuff.PersonalizedBedrooms
             //TODO add Desires associated with addedTraits
             //TODO notify player of change
         }
+
+        public int GetScoreStage(Room room)
+        {
+            //TODO logic to check highest desire tier met
+            return 0;
+        }
+
         public void ActivateTraitDesires()
         {
             //select as many trait-associated desires as possible for each desire tier
@@ -120,5 +127,4 @@ namespace nuff.PersonalizedBedrooms
             //fill remaining desire slots for each desire tier with generic desires
         }
     }
-}
 }

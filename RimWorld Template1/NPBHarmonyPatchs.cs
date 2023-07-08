@@ -94,6 +94,7 @@ namespace nuff.PersonalizedBedrooms
             CompPersonalizedBedroom comp = actor.TryGetComp<CompPersonalizedBedroom>();
             if (comp == null)
             {
+                //TODO am I doing these in the right order?
                 CompPersonalizedBedroom newComp = new CompPersonalizedBedroom();
                 actor.AllComps.Add(newComp);
                 comp = newComp;
