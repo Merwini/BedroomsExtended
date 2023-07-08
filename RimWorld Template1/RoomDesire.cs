@@ -11,5 +11,14 @@ namespace nuff.PersonalizedBedrooms
         //todo
 
         RoomDesireDef def;
+
+        internal bool Met
+        {
+            get
+            {
+                //TODO
+                return true;
+            }
+        }
     }
 }

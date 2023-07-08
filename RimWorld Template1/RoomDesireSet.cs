@@ -11,13 +11,25 @@ namespace nuff.PersonalizedBedrooms
     class RoomDesireSet
     {
         Pawn pawn;
+        int minimumDesiresMetPerTier = 3;
+        int generatedDesiresPerTier = 5;
 
-        public HashSet<Trait> traitCacheSet;
+        private HashSet<Trait> traitCacheSet;
+        private List<List<RoomDesire>> roomDesireListList = new List<List<RoomDesire>>
+        {
+            new List<RoomDesire>(),
+            new List<RoomDesire>(),
+            new List<RoomDesire>(),
+            new List<RoomDesire>(),
+            new List<RoomDesire>()
+        };
 
         public RoomDesireSet(Pawn pawn)
         {
             this.pawn = pawn;
             traitCacheSet = CacheTraits(pawn.story.traits.allTraits);
+            //TODO change minimumDesiresMetPerTier if has matching trait
+            //TODO same for generatedDesiresPerTier
         }
 
         public HashSet<Trait> CacheTraits(List<Trait> list)
@@ -84,8 +96,30 @@ namespace nuff.PersonalizedBedrooms
 
         public int GetScoreStage(Room room)
         {
-            //TODO logic to check highest desire tier met
-            return 0;
+            int scoreStage = 0;
+            bool previousTierMet = true;
+            for (int i = 0; i < 5; i++)
+            {
+                int desiresMetForTier = 0;
+                for (int j = 0; j < roomDesireListList[i].Count; j++)
+                {
+                    if (roomDesireListList[i][j].Met)
+                    {
+                        desiresMetForTier++;
+                    }
+                }
+                if (desiresMetForTier >= minimumDesiresMetPerTier)
+                {
+                    scoreStage++;
+                    continue;
+                }
+                else
+                {
+                    break;
+                }
+
+            }
+            return scoreStage;
         }
 
         public void ActivateTraitDesires()
