@@ -34,44 +34,4 @@ namespace nuff.PersonalizedBedrooms
             //logic
             return scoreStageIndex;
         }
-
-        public void ActivateTraitDesires()
-        {
-            //select as many trait-associated desires as possible for each desire tier
-        }
-
-        public void ActivateGeneDesires()
-        {
-            if (ModsConfig.BiotechActive)
-                return;
-
-            //select as many gene-associated desires as possible for each desire tier
-            //will require BioTech
-            //maybe this takes priority over Trait desires?
-        }
-
-        public void ActivateIdeoDesires()
-        {
-            if (!ModsConfig.IdeologyActive)
-                return;
-
-            //select as many ideologion-associated desires as possible for each desire tier
-            //will require Ideology
-        }
-
-        public void ActivateTitleDesires()
-        {
-            if (!ModsConfig.RoyaltyActive)
-                return;
-
-            //select as many royalty title-associated desires as possible for each desire tier
-            //will require royalty
-            //higher titles will probably raise the desire slots for each tier
-        }
-
-        public void ActivateGenericDesires()
-        {
-            //fill remaining desire slots for each desire tier with generic desires
-        }
-    }
 }
