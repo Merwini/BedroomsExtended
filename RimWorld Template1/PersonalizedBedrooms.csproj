@@ -67,6 +67,7 @@
     <Compile Include="Mod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoomDesireDef.cs" />
+    <Compile Include="RoomDesireSet.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="TODO list.txt" />

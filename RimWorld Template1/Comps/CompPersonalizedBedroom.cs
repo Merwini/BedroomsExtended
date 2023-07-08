@@ -15,7 +15,6 @@ namespace nuff.PersonalizedBedrooms
         public HashSet<RoomDesireDef> possibleDesires;
         public HashSet<RoomDesireDef> activeDesires;
 
-        public HashSet<TraitDef> traitCache;
 
         public int desireSlots;
 
@@ -24,6 +23,7 @@ namespace nuff.PersonalizedBedrooms
         public override void Initialize(CompProperties props)
         {
             base.Initialize(props);
+
             //cache pawn traits
             //compute possibleDesires
             //select activeDesires
@@ -39,18 +39,6 @@ namespace nuff.PersonalizedBedrooms
             int scoreStageIndex = 0;
             //logic
             return scoreStageIndex;
-        }
-
-        public void checkIfTraitsChanged()
-        {
-            //compare current traits to traitCache
-            //if current traits != traitCache:
-            //make list of missing traits
-            //make list of added traits
-            //remove all desires associated with missing traits
-            //fill missing desire slots
-
-            //maybe do this on birthdays?
         }
 
         public void activateTraitDesires()
