@@ -97,7 +97,6 @@ namespace nuff.PersonalizedBedrooms
         public int GetScoreStage(Room room)
         {
             int scoreStage = 0;
-            bool previousTierMet = true;
             for (int i = 0; i < 5; i++)
             {
                 int desiresMetForTier = 0;
@@ -117,7 +116,6 @@ namespace nuff.PersonalizedBedrooms
                 {
                     break;
                 }
-
             }
             return scoreStage;
         }
