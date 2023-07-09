@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<DesireDef>
+		<defName>npb_allfloored_tierone</defName>
+		<label>all floored</label>
+		<description>bedroom is fully floored</description>
+		<desireTier>1</desireTier>
+		<workerClass></workerClass>
+	</DesireDef>
+</Defs>
