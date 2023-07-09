@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace nuff.PersonalizedBedrooms
 {
-    public class RoomDesireWorker
+    public abstract class RoomDesireWorker
     {
         public RoomDesire parent;
 
@@ -14,5 +14,7 @@ namespace nuff.PersonalizedBedrooms
         {
             this.parent = parent;
         }
+
+        public abstract bool IsMet();
     }
 }

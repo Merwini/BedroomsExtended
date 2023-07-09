@@ -11,23 +11,33 @@ namespace nuff.PersonalizedBedrooms
     {
         //todo
 
-        RoomDesireDef def;
+        internal RoomDesireDef def;
+
+        //public RoomDesireDef DesDef => def as RoomDesireDef;
 
         RoomDesireWorker worker;
 
         Pawn pawn;
 
-        public RoomDesire(Pawn pawn)
+        public RoomDesire(RoomDesireDef def, Pawn pawn)
         {
+            this.def = def;
             this.pawn = pawn;
+            if (def.workerClass.IsSubclassOf(typeof(RoomDesireWorker)))
+            {
+                worker = (RoomDesireWorker)Activator.CreateInstance(def.workerClass);
+            }
+            else
+            {
+                //TODO throw new Exception("Invalid worker type")
+            }
         }
 
         public bool Met
         {
             get
             {
-                //TODO
-                return true;
+                return worker.IsMet();
             }
         }
     }

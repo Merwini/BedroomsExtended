@@ -26,6 +26,8 @@ namespace nuff.PersonalizedBedrooms
 
         public List<ThingDef> satisfyingThings;
 
+        public List<TerrainDef> satisfyingTerrains;
+
         public QualityCategory minimumQuality;
 
         public List<TraitDef> associatedTraits;
