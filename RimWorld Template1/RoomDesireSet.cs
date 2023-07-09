@@ -30,6 +30,7 @@ namespace nuff.PersonalizedBedrooms
             traitCacheSet = CacheTraits(pawn.story.traits.allTraits);
             //TODO change minimumDesiresMetPerTier if has matching trait
             //TODO same for generatedDesiresPerTier
+            //TODO generate desires
         }
 
         public HashSet<Trait> CacheTraits(List<Trait> list)

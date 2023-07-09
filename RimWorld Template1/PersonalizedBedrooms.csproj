@@ -70,10 +70,15 @@
     <Compile Include="RoomDesireSet.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="PersonalizedBedrooms\About\About.xml" />
     <Content Include="TODO list.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PersonalizedBedrooms\Defs\" />
+    <Folder Include="PersonalizedBedrooms\Textures\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
