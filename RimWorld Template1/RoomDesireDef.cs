@@ -12,6 +12,18 @@ namespace nuff.PersonalizedBedrooms
     //todo
     public class RoomDesireDef : Def
     {
+        //inherits defName from Def
+
+        //inherits label from Def
+
+        //inherits description from Def
+
+        public Type workerClass;
+
+        public RoomDesireDef upgradesFrom;
+
+        public List<RoomDesireDef> incompatibleWith;
+
         public List<ThingDef> satisfyingThings;
 
         public QualityCategory minimumQuality;

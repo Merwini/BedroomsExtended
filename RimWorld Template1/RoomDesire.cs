@@ -3,16 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Verse;
 
 namespace nuff.PersonalizedBedrooms
 {
-    class RoomDesire
+    public class RoomDesire
     {
         //todo
 
         RoomDesireDef def;
 
-        internal bool Met
+        RoomDesireWorker worker;
+
+        Pawn pawn;
+
+        public RoomDesire(Pawn pawn)
+        {
+            this.pawn = pawn;
+        }
+
+        public bool Met
         {
             get
             {

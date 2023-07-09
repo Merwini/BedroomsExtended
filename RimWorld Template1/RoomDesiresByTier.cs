@@ -8,7 +8,7 @@ using Verse;
 namespace nuff.PersonalizedBedrooms
 {
     [StaticConstructorOnStartup]
-    class DesiresByTier
+    class RoomDesiresByTier
     {
         static HashSet<RoomDesireDef> tierOne;
         static HashSet<RoomDesireDef> tierTwo;
@@ -16,7 +16,7 @@ namespace nuff.PersonalizedBedrooms
         static HashSet<RoomDesireDef> tierFour;
         static HashSet<RoomDesireDef> tierFive;
 
-        static DesiresByTier()
+        static RoomDesiresByTier()
         {
             foreach (RoomDesireDef rdd in DefDatabase<RoomDesireDef>.AllDefsListForReading)
             {
