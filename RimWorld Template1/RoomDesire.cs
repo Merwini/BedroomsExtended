@@ -15,9 +15,9 @@ namespace nuff.PersonalizedBedrooms
 
         //public RoomDesireDef DesDef => def as RoomDesireDef;
 
-        RoomDesireWorker worker;
+        internal RoomDesireWorker worker;
 
-        Pawn pawn;
+        internal Pawn pawn;
 
         public RoomDesire(RoomDesireDef def, Pawn pawn)
         {

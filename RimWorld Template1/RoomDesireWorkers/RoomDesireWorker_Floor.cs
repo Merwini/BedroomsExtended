@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Verse;
+using RimWorld;
 
 namespace nuff.PersonalizedBedrooms
 {
@@ -15,9 +17,23 @@ namespace nuff.PersonalizedBedrooms
         public override bool IsMet()
         {
             //TODO
-            bool isMet = false;
+            bool isMet = true;
 
-            //TODO logic to check floors
+            Room room = parent.pawn.ownership.OwnedBed.GetRoom();
+            HashSet<TerrainDef> terrainSet = new HashSet<TerrainDef>();
+            foreach (IntVec3 cell in room.Cells)
+            {
+                terrainSet.Add(cell.GetTerrain(room.Map));
+            }
+            List<TerrainDef> satisfyingTerrains = parent.def.satisfyingTerrains;
+            foreach (TerrainDef td in terrainSet)
+            {
+                if (!satisfyingTerrains.Contains(td))
+                {
+                    isMet = false;
+                    break;
+                }
+            }
 
             return isMet;
         }
