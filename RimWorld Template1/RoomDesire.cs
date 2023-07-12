@@ -50,9 +50,14 @@ namespace nuff.PersonalizedBedrooms
             List<string> sat2 = def.satisfyingTerrains;
             for (int i = 0; i < sat2.Count; i++)
             {
-                TerrainDef td;
+                foreach (TerrainDef td in RoomDesireMain.terrainHashSet)
+                {
+                    if (td.defName.StartsWith(sat2[i]))
+                    {
+                        satisfyingTerrainsExpanded.Add(td);
+                    }
+                }
             }
-            //TODOsatisfyingTerrains
         }
 
         public bool IsMet(Pawn pawn)

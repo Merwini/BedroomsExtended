@@ -18,7 +18,7 @@ namespace nuff.PersonalizedBedrooms
         static HashSet<RoomDesire> tierFour = new HashSet<RoomDesire>();
         static HashSet<RoomDesire> tierFive = new HashSet<RoomDesire>();
 
-        static HashSet<TerrainDef> terrainHashSet = new HashSet<TerrainDef>();
+        internal static HashSet<TerrainDef> terrainHashSet = new HashSet<TerrainDef>();
 
         static RoomDesireMain()
         {
