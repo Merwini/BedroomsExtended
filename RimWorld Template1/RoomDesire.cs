@@ -15,14 +15,16 @@ namespace nuff.PersonalizedBedrooms
 
         //public RoomDesireDef DesDef => def as RoomDesireDef;
 
-        internal RoomDesireWorker worker;
+        RoomDesireWorker worker;
 
-        internal Pawn pawn;
+        HashSet<ThingDef> satisfyingThingsExpanded;
 
-        public RoomDesire(RoomDesireDef def, Pawn pawn)
+        HashSet<TerrainDef> satisfyingTerrainsExpanded;
+
+        RoomDesire(RoomDesireDef def)
         {
             this.def = def;
-            this.pawn = pawn;
+
             if (def.workerClass.IsSubclassOf(typeof(RoomDesireWorker)))
             {
                 worker = (RoomDesireWorker)Activator.CreateInstance(def.workerClass);
@@ -33,12 +35,9 @@ namespace nuff.PersonalizedBedrooms
             }
         }
 
-        public bool Met
+        public bool IsMet(Pawn pawn)
         {
-            get
-            {
-                return worker.IsMet();
-            }
+            return worker.IsMet(pawn);
         }
     }
 }

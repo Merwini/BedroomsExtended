@@ -44,7 +44,7 @@ Ideas for desires (vanilla has 8 moodlets for bedroom, ranging from -4 to +8):
 	Tier 1 (0):
 		Bedroom
 		An actual bed
-		Floored
+		Floored <-- cancel. Maybe there will be pawns who want natural floors
 
 	Tier 2 (+2):
 		Double bed

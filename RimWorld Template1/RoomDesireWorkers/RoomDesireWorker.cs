@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Verse;
 
 namespace nuff.PersonalizedBedrooms
 {
@@ -15,6 +16,6 @@ namespace nuff.PersonalizedBedrooms
             this.parent = parent;
         }
 
-        public abstract bool IsMet();
+        public abstract bool IsMet(Pawn pawn);
     }
 }

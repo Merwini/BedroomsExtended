@@ -14,12 +14,12 @@ namespace nuff.PersonalizedBedrooms
         {
         }
 
-        public override bool IsMet()
+        public override bool IsMet(Pawn pawn)
         {
             //TODO
             bool isMet = true;
 
-            Room room = parent.pawn.ownership.OwnedBed.GetRoom();
+            Room room = pawn.ownership.OwnedBed.GetRoom();
             HashSet<TerrainDef> terrainSet = new HashSet<TerrainDef>();
             foreach (IntVec3 cell in room.Cells)
             {

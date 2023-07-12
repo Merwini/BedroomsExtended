@@ -5,6 +5,9 @@
 		<label>all floored</label>
 		<description>bedroom is fully floored</description>
 		<desireTier>1</desireTier>
-		<workerClass></workerClass>
+		<workerClass>RoomDesireWorker_Floor</workerClass>
+		<satisfyingTerrains>
+			<li></li>
+		</satisfyingTerrains>
 	</DesireDef>
 </Defs>
