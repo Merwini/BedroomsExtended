@@ -17,14 +17,23 @@ namespace nuff.PersonalizedBedrooms
 
         RoomDesireWorker worker;
 
-        HashSet<ThingDef> satisfyingThingsExpanded;
+        //will be filled by RoomDesireMain
+        internal HashSet<RoomDesire> upgradesFrom;
 
-        HashSet<TerrainDef> satisfyingTerrainsExpanded;
+        //will be filled by RoomDesireMain
+        internal HashSet<RoomDesire> incompatibleWith;
 
-        RoomDesire(RoomDesireDef def)
+        internal HashSet<ThingDef> satisfyingThingsExpanded = new HashSet<ThingDef>();
+
+        internal HashSet<TerrainDef> satisfyingTerrainsExpanded = new HashSet<TerrainDef>();
+
+        internal int desireTier;
+
+        internal RoomDesire(RoomDesireDef def)
         {
             this.def = def;
-
+            this.desireTier = def.desireTier;
+            //TODO finish filling fields
             if (def.workerClass.IsSubclassOf(typeof(RoomDesireWorker)))
             {
                 worker = (RoomDesireWorker)Activator.CreateInstance(def.workerClass);
@@ -33,11 +42,33 @@ namespace nuff.PersonalizedBedrooms
             {
                 //TODO throw new Exception("Invalid worker type")
             }
+            List<ThingDef> sat1 = def.satisfyingThings;
+            for (int i = 0; i < sat1.Count; i++)
+            {
+                satisfyingThingsExpanded.Add(sat1[i]);
+            }
+            List<string> sat2 = def.satisfyingTerrains;
+            for (int i = 0; i < sat2.Count; i++)
+            {
+                TerrainDef td;
+            }
+            //TODOsatisfyingTerrains
         }
 
         public bool IsMet(Pawn pawn)
         {
             return worker.IsMet(pawn);
+        }
+
+        public HashSet<ThingDef> fillSatisfyingThings()
+        {
+            HashSet<ThingDef> satS = new HashSet<ThingDef>();
+            List<ThingDef> satL = this.def.satisfyingThings;
+            for (int i = 0; i < satL.Count; i++)
+            {
+                satS.Add(satL[i]);
+            }
+            return satS;
         }
     }
 }

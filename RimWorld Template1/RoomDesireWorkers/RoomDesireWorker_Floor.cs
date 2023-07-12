@@ -25,7 +25,7 @@ namespace nuff.PersonalizedBedrooms
             {
                 terrainSet.Add(cell.GetTerrain(room.Map));
             }
-            List<TerrainDef> satisfyingTerrains = parent.def.satisfyingTerrains;
+            HashSet<TerrainDef> satisfyingTerrains = parent.satisfyingTerrainsExpanded;
             foreach (TerrainDef td in terrainSet)
             {
                 if (!satisfyingTerrains.Contains(td))

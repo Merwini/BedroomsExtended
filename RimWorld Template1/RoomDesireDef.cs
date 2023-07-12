@@ -20,15 +20,18 @@ namespace nuff.PersonalizedBedrooms
 
         public Type workerClass;
 
-        public RoomDesireDef upgradesFrom;
+        public List<RoomDesireDef> upgradesFrom;
 
         public List<RoomDesireDef> incompatibleWith;
 
         public List<ThingDef> satisfyingThings;
 
-        public List<TerrainDef> satisfyingTerrains;
+        //changed to strings, so that TerrainTemplateDefs can be included as well. Will be parsed into Defs when the Desire is instantiated
+        public List<string> satisfyingTerrains;
 
         public QualityCategory minimumQuality;
+
+        public int minimumQuantity;
 
         public List<TraitDef> associatedTraits;
 

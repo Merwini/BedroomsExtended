@@ -103,7 +103,7 @@ namespace nuff.PersonalizedBedrooms
                 int desiresMetForTier = 0;
                 for (int j = 0; j < roomDesireListList[i].Count; j++)
                 {
-                    if (roomDesireListList[i][j].Met)
+                    if (roomDesireListList[i][j].IsMet(pawn))
                     {
                         desiresMetForTier++;
                     }
