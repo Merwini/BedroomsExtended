@@ -16,6 +16,6 @@ namespace nuff.PersonalizedBedrooms
             this.parent = parent;
         }
 
-        public abstract bool IsMet(Pawn pawn);
+        public abstract bool IsMet(Pawn pawn, Room room);
     }
 }

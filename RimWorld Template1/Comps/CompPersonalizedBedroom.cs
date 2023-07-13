@@ -33,10 +33,11 @@ namespace nuff.PersonalizedBedrooms
         {
             //only need to recalculate ThoughtStage, which is expensive, if the room wealth has changed i.e. room contents have changed
             //edge case of room contents changing w/o changing wealth seems insignifcant at this time
-            float currentBedroomWealth = bed.GetRoom().GetStat(RoomStatDefOf.Wealth);
+            Room room = bed.GetRoom();
+            float currentBedroomWealth = room.GetStat(RoomStatDefOf.Wealth);
             if (currentBedroomWealth != cachedBedroomWealth)
             {
-                cachedThoughtStage = roomDesireSet.GetScoreStage(bed.GetRoom());
+                cachedThoughtStage = roomDesireSet.GetScoreStage(room);
                 cachedBedroomWealth = currentBedroomWealth;
             }
             return cachedThoughtStage;

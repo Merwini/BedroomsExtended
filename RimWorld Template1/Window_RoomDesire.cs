@@ -25,6 +25,33 @@ namespace nuff.PersonalizedBedrooms
 
         public override void DoWindowContents(Rect inRect)
         {
+            Listing_Standard list = new Listing_Standard();
+            list.Begin(inRect);
+            Text.Font = GameFont.Medium;
+            GUI.color = Color.white;
+            list.Label("Bedroom Desires for " + pawn.Name);
+
+            Text.Font = GameFont.Small;
+            list.Label("Tier one desires:");
+            //TODO list tier one desires
+            list.Gap();
+
+            list.Label("Tier two desires:");
+            //TODO list tier two desires
+            list.Gap();
+
+            list.Label("Tier three desires:");
+            //TODO list tier three desires
+            list.Gap();
+
+            list.Label("Tier four desires:");
+            //TODO list tier four desires
+            list.Gap();
+
+            list.Label("Tier five desires:");
+            //TODO list tier five desires
+            list.Gap();
+
             //TODO fill window with pawns desires and show which are met and which aren't
         }
 

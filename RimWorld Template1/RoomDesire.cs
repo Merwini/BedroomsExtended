@@ -60,9 +60,9 @@ namespace nuff.PersonalizedBedrooms
             }
         }
 
-        public bool IsMet(Pawn pawn)
+        public bool IsMet(Pawn pawn, Room room)
         {
-            return worker.IsMet(pawn);
+            return worker.IsMet(pawn, room);
         }
 
         public HashSet<ThingDef> fillSatisfyingThings()

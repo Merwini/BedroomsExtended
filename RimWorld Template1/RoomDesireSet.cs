@@ -103,7 +103,7 @@ namespace nuff.PersonalizedBedrooms
                 int desiresMetForTier = 0;
                 for (int j = 0; j < roomDesireListList[i].Count; j++)
                 {
-                    if (roomDesireListList[i][j].IsMet(pawn))
+                    if (roomDesireListList[i][j].IsMet(pawn, room))
                     {
                         desiresMetForTier++;
                     }
@@ -119,6 +119,13 @@ namespace nuff.PersonalizedBedrooms
                 }
             }
             return scoreStage;
+        }
+
+        public List<Dictionary<RoomDesire, bool>> GetDesiresMetCache(Room room)
+        {
+            //TODO 
+
+            return null;
         }
 
         public void ActivateTraitDesires()
