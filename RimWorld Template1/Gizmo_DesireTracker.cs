@@ -5,21 +5,28 @@ using System.Text;
 using System.Threading.Tasks;
 using RimWorld;
 using UnityEngine;
+using UnityEngine.UI;
 using Verse;
 
 namespace nuff.PersonalizedBedrooms
 {
-    class Gizmo_DesireTracker : Gizmo
+    class Gizmo_DesireTracker : Command
     {
-        //todo
-        public override float GetWidth(float maxWidth)
+        internal Pawn pawn;
+
+        public Gizmo_DesireTracker(Pawn pawn)
         {
-            throw new NotImplementedException();
+            this.pawn = pawn;
         }
 
-        public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
+        public override void ProcessInput(UnityEngine.Event ev)
         {
-            throw new NotImplementedException();
+            base.ProcessInput(ev);
+
+            if (Find.WindowStack.WindowOfType<Window_RoomDesire>() == null)
+            {
+                Find.WindowStack.Add(new Window_RoomDesire(pawn));
+            }
         }
     }
 }
