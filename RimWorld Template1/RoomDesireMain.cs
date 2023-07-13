@@ -10,13 +10,16 @@ namespace nuff.PersonalizedBedrooms
     [StaticConstructorOnStartup]
     class RoomDesireMain
     {
-        static HashSet<RoomDesire> allDesiresSet = new HashSet<RoomDesire>();
+        static Dictionary<RoomDesireDef,RoomDesire> desiresDictionary = new Dictionary<RoomDesireDef, RoomDesire>();
 
-        static HashSet<RoomDesire> tierOne = new HashSet<RoomDesire>();
-        static HashSet<RoomDesire> tierTwo = new HashSet<RoomDesire>();
-        static HashSet<RoomDesire> tierThree = new HashSet<RoomDesire>();
-        static HashSet<RoomDesire> tierFour = new HashSet<RoomDesire>();
-        static HashSet<RoomDesire> tierFive = new HashSet<RoomDesire>();
+        static List<HashSet<RoomDesire>> desiresByTier = new List<HashSet<RoomDesire>>
+        {
+            new HashSet<RoomDesire>(),
+            new HashSet<RoomDesire>(),
+            new HashSet<RoomDesire>(),
+            new HashSet<RoomDesire>(),
+            new HashSet<RoomDesire>()
+        };
 
         internal static HashSet<TerrainDef> terrainHashSet = new HashSet<TerrainDef>();
 
@@ -24,6 +27,8 @@ namespace nuff.PersonalizedBedrooms
         {
             FillTerrainHashSet();
             InstantiateAllDesires();
+            FrontFillUpgrades();
+            BackFillSatisfiers();
             //TODO fill upgradesFrom
             //TODO backfill satisfiers
         }
@@ -42,7 +47,7 @@ namespace nuff.PersonalizedBedrooms
             foreach (RoomDesireDef rdd in DefDatabase<RoomDesireDef>.AllDefsListForReading)
             {
                 RoomDesire rd = new RoomDesire(rdd);
-                allDesiresSet.Add(rd);
+                desiresDictionary.Add(rdd,rd);
                 SortDesireTier(rd);
             }
         }
@@ -52,28 +57,57 @@ namespace nuff.PersonalizedBedrooms
             switch (rd.desireTier)
             {
                 case 1:
-                    tierOne.Add(rd);
+                    desiresByTier[0].Add(rd);
                     break;
                 case 2:
-                    tierTwo.Add(rd);
+                    desiresByTier[1].Add(rd);
                     break;
                 case 3:
-                    tierThree.Add(rd);
+                    desiresByTier[2].Add(rd);
                     break;
                 case 4:
-                    tierFour.Add(rd);
+                    desiresByTier[3].Add(rd);
                     break;
                 case 5:
-                    tierFive.Add(rd);
+                    desiresByTier[4].Add(rd);
                     break;
+            }
+        }
+
+        static void FrontFillUpgrades()
+        {
+            for (int i = 0; i < desiresByTier.Count; i++)
+            {
+                foreach (RoomDesire rd in desiresByTier[i])
+                {
+                    List<RoomDesireDef> rddList = rd.def.upgradesFrom;
+                    if (rddList?.Count > 0)
+                    {
+                        for (int j = 0; j < rddList.Count; j++)
+                        {
+                            rd.upgradesFrom.Add(desiresDictionary.TryGetValue(rddList[j]));
+                        }
+                        foreach (RoomDesire rd2 in rd.upgradesFrom)
+                        {
+                            rd.upgradesFrom.UnionWith(rd2.upgradesFrom);
+                        }
+                    }
+                }
             }
         }
 
         static void BackFillSatisfiers()
         {
-            foreach (RoomDesire rd in tierFive)
+            for (int i = 4; i <= 0; i--)
             {
-                foreach (RoomDesire rdu in rd.upgradesFrom)
+                foreach (RoomDesire rd in desiresByTier[i])
+                {
+                    foreach (RoomDesire rd2 in rd.upgradesFrom)
+                    {
+                        rd.satisfyingThingsExpanded.UnionWith(rd2.satisfyingThingsExpanded);
+                        rd.satisfyingTerrainsExpanded.UnionWith(rd2.satisfyingTerrainsExpanded);
+                    }
+                }
             }
         }
     }
