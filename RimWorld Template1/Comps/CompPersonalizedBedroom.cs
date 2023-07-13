@@ -12,10 +12,10 @@ namespace nuff.PersonalizedBedrooms
     {
         CompProperties_PersonalizedBedroom Props => props as CompProperties_PersonalizedBedroom;
 
-        private RoomDesireSet roomDesireSet;
+        internal RoomDesireSet roomDesireSet;
 
-        private HashSet<RoomDesireDef> possibleDesires;
-        private HashSet<RoomDesireDef> activeDesires;
+        internal HashSet<RoomDesireDef> possibleDesires;
+        internal HashSet<RoomDesireDef> activeDesires;
 
 
         public int desireSlots;

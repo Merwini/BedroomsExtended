@@ -12,6 +12,8 @@ namespace nuff.PersonalizedBedrooms
     {
         internal Pawn pawn;
 
+        internal List<Dictionary<RoomDesire, bool>> dictList;
+
         public Window_RoomDesire(Pawn pawn)
         {
             this.pawn = pawn;
@@ -21,6 +23,9 @@ namespace nuff.PersonalizedBedrooms
         {
             base.PreOpen();
             //TODO recalculate which desires are met and which aren't. Cache the results so they aren't continually recalculated while the window is open
+            CompPersonalizedBedroom comp = pawn.TryGetComp<CompPersonalizedBedroom>();
+            Room room = pawn.ownership.OwnedBed.GetRoom();
+            dictList = comp.roomDesireSet.GetDesiresMetCache(room);
         }
 
         public override void DoWindowContents(Rect inRect)
@@ -30,8 +35,24 @@ namespace nuff.PersonalizedBedrooms
             Text.Font = GameFont.Medium;
             GUI.color = Color.white;
             list.Label("Bedroom Desires for " + pawn.Name);
-
             Text.Font = GameFont.Small;
+
+            for (int i = 0; i < dictList.Count; i++)
+            {
+                foreach (KeyValuePair<RoomDesire, bool> entry in dictList[i])
+                {
+                    //TODO
+                    if (entry.Value == true)
+                    {
+                        GUI.color = Color.green;
+                    }
+                    else
+                    {
+                        GUI.color = Color.red;
+                    }
+                }
+            }
+
             list.Label("Tier one desires:");
             //TODO list tier one desires
             list.Gap();
