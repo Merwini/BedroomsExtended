@@ -124,8 +124,23 @@ namespace nuff.PersonalizedBedrooms
         public List<Dictionary<RoomDesire, bool>> GetDesiresMetCache(Room room)
         {
             //TODO 
+            List<Dictionary<RoomDesire, bool>> dictList = new List<Dictionary<RoomDesire, bool>>
+            {
+                new Dictionary<RoomDesire, bool>(),
+                new Dictionary<RoomDesire, bool>(),
+                new Dictionary<RoomDesire, bool>(),
+                new Dictionary<RoomDesire, bool>(),
+                new Dictionary<RoomDesire, bool>()
+            };
+            for (int i = 0; i < roomDesireListList.Count; i++)
+            {
+                foreach (RoomDesire rd in roomDesireListList[i])
+                {
+                    dictList[i].Add(rd, rd.IsMet(pawn,room));
+                }
+            }
 
-            return null;
+            return dictList;
         }
 
         public void ActivateTraitDesires()
