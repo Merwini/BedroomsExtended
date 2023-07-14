@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 using Verse;
 
 namespace nuff.PersonalizedBedrooms
@@ -12,7 +13,25 @@ namespace nuff.PersonalizedBedrooms
     {
         internal Pawn pawn;
 
+        internal CompPersonalizedBedroom comp;
+
+        internal Room room;
+
         internal List<Dictionary<RoomDesire, bool>> dictList;
+
+        int desiresNeeded;
+
+
+        public enum DesireTierStatus
+        {
+            ACTIVE,
+            INACTIVE
+        }
+
+        internal string[] desireTierStrings =
+        {
+            "One", "Two", "Three", "Four", "Five"
+        };
 
         public Window_RoomDesire(Pawn pawn)
         {
@@ -23,22 +42,47 @@ namespace nuff.PersonalizedBedrooms
         {
             base.PreOpen();
             //TODO recalculate which desires are met and which aren't. Cache the results so they aren't continually recalculated while the window is open
-            CompPersonalizedBedroom comp = pawn.TryGetComp<CompPersonalizedBedroom>();
-            Room room = pawn.ownership.OwnedBed.GetRoom();
+            comp = pawn.TryGetComp<CompPersonalizedBedroom>();
+            room = pawn.ownership.OwnedBed.GetRoom();
             dictList = comp.roomDesireSet.GetDesiresMetCache(room);
+            desiresNeeded = comp.roomDesireSet.minimumDesiresMetPerTier;
         }
 
         public override void DoWindowContents(Rect inRect)
         {
+            int displayDesiresTotal = 0;
+            int displayDesiresMet = 0;
+            string displayTierStatus = "ERROR";
+            string displayTierColor = "ERROR";
+
             Listing_Standard list = new Listing_Standard();
             list.Begin(inRect);
-            Text.Font = GameFont.Medium;
+            Verse.Text.Font = GameFont.Medium;
             GUI.color = Color.white;
             list.Label("Bedroom Desires for " + pawn.Name);
-            Text.Font = GameFont.Small;
+            Verse.Text.Font = GameFont.Small;
 
             for (int i = 0; i < dictList.Count; i++)
             {
+                foreach (KeyValuePair<RoomDesire, bool> entry in dictList[i])
+                {
+                    displayDesiresTotal++;
+                    if (entry.Value == true)
+                        displayDesiresMet++;
+                }
+                if (displayDesiresMet >= desiresNeeded)
+                {
+                    displayTierStatus = "ACTIVE";
+                    displayTierColor = "<color=green>";
+                }
+                else
+                {
+                    displayTierStatus = "INACTIVE";
+                    displayTierColor = "<color=red>";
+                }
+                string tierLabel = $"<color=white>Tier {desireTierStrings[i]} desires. ({displayDesiresMet.ToString()}/{displayDesiresTotal.ToString()} met. Status: </color>{displayTierColor}{displayTierStatus}</color>";
+                list.Label(tierLabel);
+
                 foreach (KeyValuePair<RoomDesire, bool> entry in dictList[i])
                 {
                     //TODO
@@ -50,30 +94,9 @@ namespace nuff.PersonalizedBedrooms
                     {
                         GUI.color = Color.red;
                     }
+                    list.Label(entry.Key.label);
                 }
             }
-
-            list.Label("Tier one desires:");
-            //TODO list tier one desires
-            list.Gap();
-
-            list.Label("Tier two desires:");
-            //TODO list tier two desires
-            list.Gap();
-
-            list.Label("Tier three desires:");
-            //TODO list tier three desires
-            list.Gap();
-
-            list.Label("Tier four desires:");
-            //TODO list tier four desires
-            list.Gap();
-
-            list.Label("Tier five desires:");
-            //TODO list tier five desires
-            list.Gap();
-
-            //TODO fill window with pawns desires and show which are met and which aren't
         }
 
         public override void Close(bool doCloseSound = true)

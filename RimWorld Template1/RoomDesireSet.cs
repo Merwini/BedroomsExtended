@@ -11,8 +11,8 @@ namespace nuff.PersonalizedBedrooms
     class RoomDesireSet
     {
         Pawn pawn;
-        int minimumDesiresMetPerTier = 3;
-        int generatedDesiresPerTier = 5;
+        internal int minimumDesiresMetPerTier = 3;
+        internal int generatedDesiresPerTier = 5;
 
         private HashSet<Trait> traitCacheSet;
         private List<List<RoomDesire>> roomDesireListList = new List<List<RoomDesire>>

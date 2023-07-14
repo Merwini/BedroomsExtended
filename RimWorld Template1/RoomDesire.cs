@@ -13,6 +13,8 @@ namespace nuff.PersonalizedBedrooms
 
         internal RoomDesireDef def;
 
+        internal string label;
+
         //public RoomDesireDef DesDef => def as RoomDesireDef;
 
         RoomDesireWorker worker;
@@ -32,6 +34,7 @@ namespace nuff.PersonalizedBedrooms
         internal RoomDesire(RoomDesireDef def)
         {
             this.def = def;
+            this.label = def.label;
             this.desireTier = def.desireTier;
             //TODO finish filling fields
             if (def.workerClass.IsSubclassOf(typeof(RoomDesireWorker)))
