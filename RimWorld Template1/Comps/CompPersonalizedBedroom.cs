@@ -17,7 +17,6 @@ namespace nuff.PersonalizedBedrooms
         internal HashSet<RoomDesireDef> possibleDesires;
         internal HashSet<RoomDesireDef> activeDesires;
 
-
         public int desireSlots;
 
         public float cachedBedroomWealth = -1;
@@ -27,6 +26,13 @@ namespace nuff.PersonalizedBedrooms
         {
             base.Initialize(props);
             roomDesireSet = new RoomDesireSet(this.parent as Pawn);
+        }
+
+        public override IEnumerable<Gizmo> CompGetGizmosExtra()
+        {
+            List<Gizmo> result = new List<Gizmo>();
+            result.Add(new Gizmo_DesireTracker(this.parent as Pawn));
+            return result;
         }
 
         public int ReturnThoughtStage(Building_Bed bed)
