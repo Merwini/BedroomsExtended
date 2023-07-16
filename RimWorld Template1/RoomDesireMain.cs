@@ -33,7 +33,7 @@ namespace nuff.PersonalizedBedrooms
             //TODO backfill satisfiers
         }
 
-        //I think making a HashSet will save cycles in the long run
+        //I think making a HashSet will save cycles in the long run. Also necessary due to implied defs created at runtime
         internal static void FillTerrainHashSet()
         {
             foreach (TerrainDef td in DefDatabase<TerrainDef>.AllDefs)

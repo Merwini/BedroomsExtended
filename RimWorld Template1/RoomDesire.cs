@@ -55,6 +55,7 @@ namespace nuff.PersonalizedBedrooms
             {
                 foreach (TerrainDef td in RoomDesireMain.terrainHashSet)
                 {
+                    //Implied Defs for carpet start with the
                     if (td.defName.StartsWith(sat2[i]))
                     {
                         satisfyingTerrainsExpanded.Add(td);

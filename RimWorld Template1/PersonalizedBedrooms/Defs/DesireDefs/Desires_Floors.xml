@@ -1,13 +1,131 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<DesireDef>
-		<defName>npb_allfloored_tierone</defName>
-		<label>all floored</label>
-		<description>bedroom is fully floored</description>
-		<desireTier>1</desireTier>
+	<DesireDef Abstract="True" Name="DesireFloorBase">
 		<workerClass>RoomDesireWorker_Floor</workerClass>
+	</DesireDef>
+	
+	<!-- TIER ONE -->
+	<DesireDef ParentName="DesireFloorBase">
+		<defName>npb_allfloored_tierone</defName>
+		<label>I want my bedroom to be fully floored</label>
+		<description>I don't care what kind of floor it is, but I expect my bedroom to have a constructed floor.</description>
+		<desireTier>1</desireTier>
 		<satisfyingTerrains>
-			<li></li>
+			<li>StrawMatting</li>
+			<li>TileSandstone</li>
+			<li>TileSandstone</li>
+			<li>TileLimestone</li>
+			<li>TileSlate</li>
+			<li>TileMarble</li>
 		</satisfyingTerrains>
 	</DesireDef>
+
+	<!-- TIER TWO -->
+	<DesireDef Abstract="True" ParentName="DesireFloorBase" Name="DesireFloorBaseTwo">
+		<desireTier>2</desireTier>
+		<upgradesFrom>npb_allfloored_tierone</upgradesFrom>
+	</DesireDef>
+	<DesireDef ParentName="DesireFloorBase">
+		<defName>npb_woodfloored_tiertwo</defName>
+		<label>I want my bedroom to have wooden floors</label>
+		<description>I love the look and feel of wooden floors.</description>
+		<satisfyingTerrains>WoodPlankFloor</satisfyingTerrains>
+	</DesireDef>
+	<DesireDef ParentName="DesireFloorBase">
+		<defName>npb_stonefloored_tiertwo</defName>
+		<label>I want my bedroom to have stone floors</label>
+		<description>I don't care what kind of stone it is, or how it's cut, but I want some nice solid stone under my feet.</description>
+		<satisfyingTerrains>
+			<!--All the flagstone stone floors start with Flagstone, so this is fine-->
+			<li>Flagstone</li>
+		</satisfyingTerrains>
+	</DesireDef>
+	<DesireDef ParentName="DesireFloorBase">
+		<defName>npb_metalfloored_tiertwo</defName>
+		<label>I want a concrete or metal floor</label>
+		<description>Other floors are too hard to clean. I want a nice, smooth floor. As artificial as possible.</description>
+		<satisfyingTerrains>
+			<li>Concrete</li>
+			<li>PavedTile</li>
+		</satisfyingTerrains>
+	</DesireDef>
+
+	<!-- TIER THREE -->
+	<DesireDef Abstract="True" ParentName="DesireFloorBase" Name="DesireFloorBaseThree">
+		<desireTier>3</desireTier>
+		<upgradesFrom>npb_allfloored_tierone</upgradesFrom>
+	</DesireDef>
+	<DesireDef ParentName="DesireFloorBaseThree">
+		<defName>npb_stonefloored_tierthree</defName>
+		<label>I want my bedroom to have a brick floor</label>
+		<description>Stone is nice, but flagstones are too rough. I want some nice, well-cut stone bricks for my floor.</description>
+		<satisfyingTerrains>
+			<!--Even though they all start with Tile, that's generic enough that I'm worried about accidental adds if I just use Tile-->
+			<li>TileSandstone</li>
+			<li>TileSandstone</li>
+			<li>TileLimestone</li>
+			<li>TileSlate</li>
+			<li>TileMarble</li>
+		</satisfyingTerrains>
+		<upgradesFrom>npb_stonefloored_tiertwo</upgradesFrom>
+	</DesireDef>
+	<DesireDef ParentName="DesireFloorBaseThree">
+		<defName>npb_metalfloored_tierthree</defName>
+		<label>I want a metal floor</label>
+		<description>A floor made of real metal. Steel is fine.</description>
+		<satisfyingTerrains>
+			<li>MetalTile</li>
+		</satisfyingTerrains>
+		<upgradesFrom>npb_metalfloored_tiertwo</upgradesFrom>
+	</DesireDef>
+	<DesireDef ParentName="DesireFloorBaseThree">
+		<defName>npb_carpetfloored_tierthree</defName>
+		<label>I want my bedroom to be have a carpeted floor</label>
+		<description>I want a nice, soft carpet in my bedroom. Wood and stone floors are too cold and hard.</description>
+		<satisfyingTerrains>
+			<!--Implied defs for the colors of carpet will all start with Carpet-->
+			<li>Carpet</li>
+		</satisfyingTerrains>
+	</DesireDef>
+
+	<!-- TIER FOUR -->
+	<DesireDef Abstract="True" ParentName="DesireFloorBase" Name="DesireFloorBaseFour">
+		<desireTier>4</desireTier>
+		<upgradesFrom>npb_allfloored_tierone</upgradesFrom>
+	</DesireDef>
+	<DesireDef ParentName="DesireFloorBaseFour">
+		<defName>npb_metalfloored_tierfour</defName>
+		<label>I want a metal floor</label>
+		<description>A floor made of real metal. Steel is kind of dull, how about silver?</description>
+		<satisfyingTerrains>
+			<li>SilverTile</li>
+		</satisfyingTerrains>
+		<upgradesFrom>npb_metalfloored_tierthree</upgradesFrom>
+		<DesireDef ParentName="DesireFloorBaseFour">
+			<defName>npb_sterilefloored_tierfour</defName>
+			<label>I want a metal floor</label>
+			<description>A floor made of real metal. And it has to be the cleanest floor the world has ever known. Sterile tile, fit for surgery.</description>
+			<satisfyingTerrains>
+				<li>SterileTile</li>
+			</satisfyingTerrains>
+			<upgradesFrom>npb_metalfloored_tierthree</upgradesFrom>
+		</DesireDef>
+	</DesireDef>
+	
+
+	<!-- TIER FIVE -->
+	<DesireDef Abstract="True" ParentName="DesireFloorBase" Name="DesireFloorBaseFive">
+		<desireTier>5</desireTier>
+		<upgradesFrom>npb_allfloored_tierone</upgradesFrom>
+	</DesireDef>
+	<DesireDef ParentName="DesireFloorBaseFive">
+		<defName>npb_metalfloored_tierfour</defName>
+		<label>I want a metal floor</label>
+		<description>A floor made of real metal. I'll settle for nothing short of gold, because I'm worth it.</description>
+		<satisfyingTerrains>
+			<li>GoldTile</li>
+		</satisfyingTerrains>
+		<upgradesFrom>npb_metalfloored_tierfour</upgradesFrom>
+	</DesireDef>
+	<!--Fine floors will probably be tier five, but will be added in a separate file-->
 </Defs>
