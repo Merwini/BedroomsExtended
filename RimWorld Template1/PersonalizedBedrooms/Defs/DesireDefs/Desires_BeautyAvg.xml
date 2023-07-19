@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<DesireDef Abstract="True" Name="DesireRoomBeautyAvgBase">
+		<workerClass>RoomDesireWorker_BeautyAvg</workerClass>
+	</DesireDef>
+
+	<DesireDef ParentName="DesireRoomBeautyAvgBase">
+		<defName>npb_beautyavg_tierone</defName>
+		<label>I want my bedroom to be pretty</label>
+		<description>I want my bedroom to be pretty.</description>
+		<desireTier>1</desireTier>
+	</DesireDef>
+
+	<DesireDef ParentName="DesireRoomBeautyAvgBase">
+		<defName>npb_beautyavg_tiertwo</defName>
+		<label>I want my bedroom to be beautiful</label>
+		<description>I want my bedroom to be beautiful.</description>
+		<desireTier>2</desireTier>
+	</DesireDef>
+
+	<DesireDef ParentName="DesireRoomBeautyAvgBase">
+		<defName>npb_beautyavg_tierthree</defName>
+		<label>I want my bedroom to be very beautiful</label>
+		<description>I want my bedroom to be very beautiful.</description>
+		<desireTier>3</desireTier>
+	</DesireDef>
+
+	<DesireDef ParentName="DesireRoomBeautyAvgBase">
+		<defName>npb_beautyavg_tierfour</defName>
+		<label>I want my bedroom to be extremely beautiful</label>
+		<description>I want my bedroom to be extremely beautiful.</description>
+		<desireTier>4</desireTier>
+	</DesireDef>
+
+	<DesireDef ParentName="DesireRoomBeautyAvgBase">
+		<defName>npb_beautyavg_tierfive</defName>
+		<label>I want my bedroom to be unbelievably beautiful</label>
+		<description>I want my bedroom to be unbelievably beautiful.</description>
+		<desireTier>5</desireTier>
+	</DesireDef>
+</Defs>

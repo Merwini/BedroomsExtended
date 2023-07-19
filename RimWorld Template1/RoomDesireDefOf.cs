@@ -9,5 +9,6 @@ namespace nuff.PersonalizedBedrooms
         //todo
 
         public static RoomStatDef Space;
+        public static RoomStatDef Beauty;
     }
 }
