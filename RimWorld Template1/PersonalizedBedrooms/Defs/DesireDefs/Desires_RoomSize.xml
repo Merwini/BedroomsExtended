@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<DesireDef Abstract="True" Name="DesireRoomSizeBase">
+		<workerClass>RoomDesireWorker_RoomSize</workerClass>
+	</DesireDef>
+
+	<DesireDef ParentName="DesireRoomSizeBase">
+		<defName>npb_roomsize_tierone</defName>
+		<label>I want my bedroom to be at least average-sized</label>
+		<description>I want my bedroom to be at least average-sized. That's about 12 empty squares, but less than that might be okay if there's lots of furniture.</description>
+		<desireTier>1</desireTier>
+		<minimumQuantity>16</minimumQuantity>
+	</DesireDef>
+	
+	<DesireDef ParentName="DesireRoomSizeBase">
+		<defName>npb_roomsize_tiertwo</defName>
+		<label>I want my bedroom to be somewhat spacious</label>
+		<description>I want my bedroom to be at least somewhat spacious. That's about 20 empty squares, but less than that might be okay if there's lots of furniture.</description>
+		<desireTier>2</desireTier>
+		<minimumQuantity>28</minimumQuantity>
+	</DesireDef>
+
+	<DesireDef ParentName="DesireRoomSizeBase">
+		<defName>npb_roomsize_tierthree</defName>
+		<label>I want my bedroom to be quite spacious</label>
+		<description>I want my bedroom to be at least quite spacious. That's about 35 empty squares, but less than that might be okay if there's lots of furniture.</description>
+		<desireTier>3</desireTier>
+		<minimumQuantity>49</minimumQuantity>
+	</DesireDef>
+
+	<DesireDef ParentName="DesireRoomSizeBase">
+		<defName>npb_roomsize_tierfour</defName>
+		<label>I want my bedroom to be very spacious</label>
+		<description>I want my bedroom to be at least very spacious. That's about 60 empty squares, but less than that might be okay if there's lots of furniture.</description>
+		<desireTier>4</desireTier>
+		<minimumQuantity>84</minimumQuantity>
+	</DesireDef>
+
+	<DesireDef ParentName="DesireRoomSizeBase">
+		<defName>npb_roomsize_tierfive</defName>
+		<label>I want my bedroom to be extremely spacious</label>
+		<description>I want my bedroom to be extremely spacious. That's about 124 empty squares, but less than that might be okay if there's lots of furniture.</description>
+		<desireTier>5</desireTier>
+		<minimumQuantity>174</minimumQuantity>
+	</DesireDef>
+	
+</Defs>

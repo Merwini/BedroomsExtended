@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using Verse;
 
 namespace nuff.PersonalizedBedrooms
 {
@@ -6,5 +7,7 @@ namespace nuff.PersonalizedBedrooms
     class RoomDesireDefOf
     {
         //todo
+
+        public static RoomStatDef Space;
     }
 }

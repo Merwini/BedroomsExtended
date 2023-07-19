@@ -29,8 +29,7 @@ namespace nuff.PersonalizedBedrooms
             InstantiateAllDesires();
             FrontFillUpgrades();
             BackFillSatisfiers();
-            //TODO fill upgradesFrom
-            //TODO backfill satisfiers
+            //TODO handle incompatiblewith
         }
 
         //I think making a HashSet will save cycles in the long run. Also necessary due to implied defs created at runtime
