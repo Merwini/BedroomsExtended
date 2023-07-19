@@ -29,7 +29,7 @@ namespace nuff.PersonalizedBedrooms
         //changed to strings, so that TerrainTemplateDefs can be included as well. Will be parsed into Defs when the Desire is instantiated
         public List<string> satisfyingTerrains;
 
-        public QualityCategory minimumQuality;
+        public QualityCategory minimumQuality = QualityCategory.Awful;
 
         public int minimumQuantity;
 

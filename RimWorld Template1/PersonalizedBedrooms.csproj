@@ -86,6 +86,8 @@
     <Compile Include="RoomDesireDef.cs" />
     <Compile Include="RoomDesireSet.cs" />
     <Compile Include="RoomDesireWorkers\RoomDesireWorker_Floor.cs" />
+    <Compile Include="RoomDesireWorkers\RoomDesireWorker_Thing.cs" />
+    <Compile Include="ThingRequirement.cs" />
     <Compile Include="Window_DesireDescription.cs" />
     <Compile Include="Window_RoomDesire.cs" />
   </ItemGroup>
@@ -93,6 +95,7 @@
     <Content Include="PersonalizedBedrooms\About\About.xml" />
     <Content Include="PersonalizedBedrooms\Defs\DesireDefs\Desires_Floors.xml" />
     <Content Include="PersonalizedBedrooms\Defs\DesireDefs\Desires_Generic.xml" />
+    <Content Include="PersonalizedBedrooms\Defs\DesireDefs\Desires_ThingsQuality.xml" />
     <Content Include="TODO list.txt" />
   </ItemGroup>
   <ItemGroup>
