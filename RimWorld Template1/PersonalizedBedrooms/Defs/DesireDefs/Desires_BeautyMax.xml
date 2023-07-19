@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<DesireDef Abstract="True" Name="DesireBeautyMaxBase">
+		<workerClass>RoomDesireWorker_BeautyMax</workerClass>
+	</DesireDef>
+
+	<DesireDef parentName="DesireBeautyMaxBase">
+		<defName>npb_beautymax_tierone</defName>
+		<label>I want something pretty in my room</label>
+		<description>I want something in my room with a beauty score of at least 50.</description>
+		<desireTier>1</desireTier>
+		<minimumQuantity></minimumQuantity>
+	</DesireDef>
+
+	<DesireDef parentName="DesireBeautyMaxBase">
+		<defName>npb_beautymax_tiertwo</defName>
+		<label>I want something beautiful in my room</label>
+		<description>I want something in my room with a beauty score of at least 100.</description>
+		<desireTier>2</desireTier>
+		<minimumQuantity></minimumQuantity>
+	</DesireDef>
+
+	<DesireDef parentName="DesireBeautyMaxBase">
+		<defName>npb_beautymax_tierthree</defName>
+		<label>I want something very beautiful in my room</label>
+		<description>I want something in my room with a beauty score of at least 600.</description>
+		<desireTier>3</desireTier>
+		<minimumQuantity></minimumQuantity>
+	</DesireDef>
+
+	<DesireDef parentName="DesireBeautyMaxBase">
+		<defName>npb_beautymax_tierfour</defName>
+		<label>I want something extremely beautiful in my room</label>
+		<description>I want something in my room with a beauty score of at least 1600.</description>
+		<desireTier>4</desireTier>
+		<minimumQuantity></minimumQuantity>
+	</DesireDef>
+
+	<DesireDef parentName="DesireBeautyMaxBase">
+		<defName>npb_beautymax_tierfive</defName>
+		<label>I want something unbelievably beautiful in my room</label>
+		<description>I want something in my room with a beauty score of at least 3000.</description>
+		<desireTier>5</desireTier>
+		<minimumQuantity></minimumQuantity>
+	</DesireDef>
+			   
+	
+</Defs>
