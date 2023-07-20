@@ -23,14 +23,77 @@ namespace nuff.PersonalizedBedrooms
             new List<RoomDesire>(),
             new List<RoomDesire>()
         };
+        HashSet<RoomDesire> roomDesireHashSet;
 
         public RoomDesireSet(Pawn pawn)
         {
             this.pawn = pawn;
+            roomDesireHashSet = new HashSet<RoomDesire>();
             traitCacheSet = CacheTraits(pawn.story.traits.allTraits);
             //TODO change minimumDesiresMetPerTier if has matching trait
             //TODO same for generatedDesiresPerTier
             //TODO generate desires
+
+
+        }
+
+        public void GenerateDesires()
+        {
+            //todo adjust i to account for easygoing or picky pawns
+            for (int i = 0; i < roomDesireListList.Count; i++)
+            {
+                int selectedDesires = 0;
+                roomDesireListList[i].Union(ReturnDesiresFromUpgrades(i, generatedDesiresPerTier - roomDesireListList[i].Count));
+                
+
+
+
+            }
+        }
+
+        public List<RoomDesire> ReturnDesiresFromUpgrades(int desireTier, int desiresDesired)
+        {
+            List<RoomDesire> possibleDesires = new List<RoomDesire>();
+            List<RoomDesire> selectedDesires = new List<RoomDesire>();
+            int desiresSelected = 0;
+
+            //attempt to select desires that are upgradesof existing ones
+            foreach (RoomDesire desire in RoomDesireMain.desiresByTier[desireTier])
+            {
+                foreach (RoomDesire desire2 in desire.upgradesFrom)
+                {
+                    if (roomDesireHashSet.Contains(desire2))
+                    {
+                        possibleDesires.Add(desire);
+                    }
+                }
+            }
+            possibleDesires.Shuffle();
+            for (int i = 0; i < possibleDesires.Count; i++)
+            {
+                if (desiresSelected == desiresDesired)
+                    break;
+
+                if (TrySelectDesire(possibleDesires[i]))
+                {
+                    selectedDesires.Add(possibleDesires[i]);
+                    desiresSelected++;
+                }
+            }
+            return selectedDesires;
+        }
+
+        public bool TrySelectDesire(RoomDesire desire)
+        {
+            bool selected = false;
+            foreach (RoomDesire desire2 in roomDesireHashSet)
+            {
+                if (!desire2.incompatibleWith.Contains(desire))
+                {
+                    return roomDesireHashSet.Add(desire);
+                }
+            }
+            return selected;
         }
 
         public HashSet<Trait> CacheTraits(List<Trait> list)

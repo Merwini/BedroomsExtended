@@ -14,9 +14,6 @@ namespace nuff.PersonalizedBedrooms
 
         internal RoomDesireSet roomDesireSet;
 
-        internal HashSet<RoomDesireDef> possibleDesires;
-        internal HashSet<RoomDesireDef> activeDesires;
-
         public int desireSlots;
 
         public float cachedBedroomWealth = -1;

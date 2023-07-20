@@ -12,7 +12,7 @@ namespace nuff.PersonalizedBedrooms
     {
         static Dictionary<RoomDesireDef,RoomDesire> desiresDictionary = new Dictionary<RoomDesireDef, RoomDesire>();
 
-        static List<HashSet<RoomDesire>> desiresByTier = new List<HashSet<RoomDesire>>
+        internal static List<HashSet<RoomDesire>> desiresByTier = new List<HashSet<RoomDesire>>
         {
             new HashSet<RoomDesire>(),
             new HashSet<RoomDesire>(),
