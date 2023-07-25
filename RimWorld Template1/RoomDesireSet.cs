@@ -83,6 +83,55 @@ namespace nuff.PersonalizedBedrooms
             return selectedDesires;
         }
 
+        public List<RoomDesire> ReturnDesiresFromRandom(int desireTier, int desiresDesired)
+        {
+            List<RoomDesire> possibleDesires = new List<RoomDesire>();
+            List<RoomDesire> selectedDesires = new List<RoomDesire>();
+            int desiresSelected = 0;
+
+            //TODO logic
+            //TODO early return if desiresDesired == 0?
+
+            //populate list of possibleDesires, check against already selected desires for imcompatibility
+            foreach (RoomDesire desire in RoomDesireMain.desiresByTier[desireTier])
+            {
+                //this block is not needed, incompatibility is checked during TrySelectDesire
+                /*
+                bool canAdd = true;
+                foreach (RoomDesire desire2 in roomDesireHashSet)
+                {
+                    if (desire2.incompatibleWith.Contains(desire))
+                    {
+                        canAdd = false;
+                        break;
+                    }
+                }
+                if (canAdd)
+                {
+                    possibleDesires.Add(desire);
+                }
+                */
+
+                possibleDesires.Add(desire);
+            }
+
+            //shuffle the list and select the correct number of desires
+            possibleDesires.Shuffle();
+            for (int i = 0; i < possibleDesires.Count; i++)
+            {
+                if (desiresSelected == desiresDesired)
+                    break;
+
+                if (TrySelectDesire(possibleDesires[i]))
+                {
+                    selectedDesires.Add(possibleDesires[i]);
+                    desiresSelected++;
+                }
+            }
+
+            return selectedDesires;
+        }
+
         public bool TrySelectDesire(RoomDesire desire)
         {
             bool selected = false;
