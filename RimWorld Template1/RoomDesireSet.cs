@@ -29,12 +29,11 @@ namespace nuff.PersonalizedBedrooms
         {
             this.pawn = pawn;
             roomDesireHashSet = new HashSet<RoomDesire>();
-            traitCacheSet = CacheTraits(pawn.story.traits.allTraits);
+            traitCacheSet = CacheTraits();
             //TODO change minimumDesiresMetPerTier if has matching trait
             //TODO same for generatedDesiresPerTier
             //TODO generate desires
-
-
+            GenerateDesires();
         }
 
         public void GenerateDesires()
@@ -44,10 +43,7 @@ namespace nuff.PersonalizedBedrooms
             {
                 int selectedDesires = 0;
                 roomDesireListList[i].Union(ReturnDesiresFromUpgrades(i, generatedDesiresPerTier - roomDesireListList[i].Count));
-                
-
-
-
+                roomDesireListList[i].Union(ReturnDesiresFromRandom(i, generatedDesiresPerTier - roomDesireListList[i].Count));
             }
         }
 
@@ -57,18 +53,24 @@ namespace nuff.PersonalizedBedrooms
             List<RoomDesire> selectedDesires = new List<RoomDesire>();
             int desiresSelected = 0;
 
+            Log.Warning("Debug 1");
             //attempt to select desires that are upgradesof existing ones
             foreach (RoomDesire desire in RoomDesireMain.desiresByTier[desireTier])
             {
+                Log.Warning("Debug 1a");
                 foreach (RoomDesire desire2 in desire.upgradesFrom)
                 {
+                    Log.Warning("Debug 1b");
                     if (roomDesireHashSet.Contains(desire2))
                     {
+                        Log.Warning("Debug 1c");
                         possibleDesires.Add(desire);
                     }
                 }
             }
+            Log.Warning("Debug 2");
             possibleDesires.Shuffle();
+            Log.Warning("Debug 3");
             for (int i = 0; i < possibleDesires.Count; i++)
             {
                 if (desiresSelected == desiresDesired)
@@ -145,19 +147,20 @@ namespace nuff.PersonalizedBedrooms
             return selected;
         }
 
-        public HashSet<Trait> CacheTraits(List<Trait> list)
+        public HashSet<Trait> CacheTraits()
         {
-            HashSet<Trait> traitSet = new HashSet<Trait>();
-            for (int i = 0; i < list.Count; i++)
+            HashSet<Trait> traitsHashSet = new HashSet<Trait>();
+            if (pawn?.story?.traits != null)
             {
-                traitSet.Add(list[i]);
+                List<Trait> traitsList = pawn.story.traits.allTraits;
+                traitsHashSet.UnionWith(traitsList);
             }
-            return traitSet;
+            return traitsHashSet;
         }
 
         public void CheckIfTraitsChanged()
         {
-            HashSet<Trait> currentTraits = CacheTraits(pawn.story.traits.allTraits);
+            HashSet<Trait> currentTraits = CacheTraits();
             bool traitsMatch = true;
             if (traitCacheSet.Count == currentTraits.Count)
             {

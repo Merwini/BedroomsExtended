@@ -43,7 +43,8 @@ namespace nuff.PersonalizedBedrooms
 
         static void InstantiateAllDesires()
         {
-            foreach (RoomDesireDef rdd in DefDatabase<RoomDesireDef>.AllDefsListForReading)
+            List<RoomDesireDef> allDesireDefs = DefDatabase<RoomDesireDef>.AllDefsListForReading;
+            foreach (RoomDesireDef rdd in allDesireDefs)
             {
                 RoomDesire rd = new RoomDesire(rdd);
                 desiresDictionary.Add(rdd,rd);

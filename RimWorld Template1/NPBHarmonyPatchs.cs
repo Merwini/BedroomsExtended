@@ -99,6 +99,7 @@ namespace nuff.PersonalizedBedrooms
                 actor.AllComps.Add(newComp);
                 comp = newComp;
                 comp.Initialize(new CompProperties_PersonalizedBedroom());
+                comp.parent = actor;
             }
 
             return comp.ReturnThoughtStage(bed);

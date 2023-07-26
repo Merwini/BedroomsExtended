@@ -7,7 +7,7 @@ using Verse;
 
 namespace nuff.PersonalizedBedrooms
 {
-    class RoomDesireWorker_BeautyAvg : RoomDesireWorker
+    public class RoomDesireWorker_BeautyAvg : RoomDesireWorker
     {
         int minScoreStage;
         public RoomDesireWorker_BeautyAvg(RoomDesire parent) : base(parent)

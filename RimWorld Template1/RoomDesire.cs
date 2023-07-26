@@ -20,10 +20,10 @@ namespace nuff.PersonalizedBedrooms
         RoomDesireWorker worker;
 
         //will be filled by RoomDesireMain
-        internal HashSet<RoomDesire> upgradesFrom;
+        internal HashSet<RoomDesire> upgradesFrom = new HashSet<RoomDesire>();
 
         //will be filled by RoomDesireMain
-        internal HashSet<RoomDesire> incompatibleWith;
+        internal HashSet<RoomDesire> incompatibleWith = new HashSet<RoomDesire>();
 
         internal HashSet<ThingDef> satisfyingThingsExpanded = new HashSet<ThingDef>();
 
@@ -39,18 +39,18 @@ namespace nuff.PersonalizedBedrooms
             //TODO finish filling fields
             if (def.workerClass.IsSubclassOf(typeof(RoomDesireWorker)))
             {
-                worker = (RoomDesireWorker)Activator.CreateInstance(def.workerClass);
+                worker = (RoomDesireWorker)Activator.CreateInstance(def.workerClass, this);
             }
             else
             {
                 //TODO throw new Exception("Invalid worker type")
             }
-            List<ThingDef> sat1 = def.satisfyingThings;
+            List<ThingDef> sat1 = def.satisfyingThings ?? new List<ThingDef>();
             for (int i = 0; i < sat1.Count; i++)
             {
                 satisfyingThingsExpanded.Add(sat1[i]);
             }
-            List<string> sat2 = def.satisfyingTerrains;
+            List<string> sat2 = def.satisfyingTerrains ?? new List<string>();
             for (int i = 0; i < sat2.Count; i++)
             {
                 foreach (TerrainDef td in RoomDesireMain.terrainHashSet)

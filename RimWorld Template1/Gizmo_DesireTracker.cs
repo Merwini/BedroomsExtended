@@ -25,7 +25,8 @@ namespace nuff.PersonalizedBedrooms
 
             if (Find.WindowStack.WindowOfType<Window_RoomDesire>() == null)
             {
-                Find.WindowStack.Add(new Window_RoomDesire(pawn));
+                Window_RoomDesire newWindow = new Window_RoomDesire(pawn);
+                Find.WindowStack.Add(newWindow);
             }
         }
     }
