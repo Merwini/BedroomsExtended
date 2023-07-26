@@ -8,7 +8,8 @@ using RimWorld;
 
 namespace nuff.PersonalizedBedrooms
 {
-    class RoomDesireSet
+    [Serializable]
+    class RoomDesireSet : IExposable
     {
         Pawn pawn;
         internal int minimumDesiresMetPerTier = 3;
@@ -41,17 +42,8 @@ namespace nuff.PersonalizedBedrooms
             //todo adjust i to account for easygoing or picky pawns
             for (int i = 0; i < roomDesireListList.Count; i++)
             {
-                int selectedDesires = 0;
                 roomDesireListList[i] = roomDesireListList[i].Union(ReturnDesiresFromUpgrades(i, generatedDesiresPerTier - roomDesireListList[i].Count)).ToList();
                 roomDesireListList[i] = roomDesireListList[i].Union(ReturnDesiresFromRandom(i, generatedDesiresPerTier - roomDesireListList[i].Count)).ToList();
-            }
-            for (int i = 0; i < roomDesireListList.Count; i++)
-            {
-                Log.Warning("Tier " + i + " desires: " + roomDesireListList[i].Count);
-                foreach (RoomDesire rd in roomDesireListList[i])
-                {
-                    Log.Warning(rd.label);
-                }
             }
         }
 
@@ -115,7 +107,6 @@ namespace nuff.PersonalizedBedrooms
                     possibleDesires.Add(desire);
                 }
                 */
-                Log.Warning("Adding possible desire " + desire.label);
                 possibleDesires.Add(desire);
             }
 
@@ -128,7 +119,6 @@ namespace nuff.PersonalizedBedrooms
 
                 if (TrySelectDesire(possibleDesires[i]))
                 {
-                    Log.Warning("Selecting desire " + possibleDesires[i].label);
                     selectedDesires.Add(possibleDesires[i]);
                     desiresSelected++;
                 }
@@ -260,43 +250,26 @@ namespace nuff.PersonalizedBedrooms
             return dictList;
         }
 
-        public void ActivateTraitDesires()
+        public void ExposeData()
         {
-            //select as many trait-associated desires as possible for each desire tier
-        }
+            Scribe_Collections.Look(ref roomDesireHashSet, "roomDesireHashSet", LookMode.Deep);
+            Scribe_Values.Look(ref minimumDesiresMetPerTier, "minimumDesiresMetPerTier", 3);
+            Scribe_Values.Look(ref generatedDesiresPerTier, "generatedDesiresPerTier", 5);
 
-        public void ActivateGeneDesires()
-        {
-            if (ModsConfig.BiotechActive)
-                return;
+            if (Scribe.mode == LoadSaveMode.LoadingVars)
+            {
+                // Populate the roomDesireListList during load
+                roomDesireListList.Clear();
+                for (int i = 0; i < 5; i++)
+                {
+                    roomDesireListList.Add(new List<RoomDesire>());
+                }
 
-            //select as many gene-associated desires as possible for each desire tier
-            //will require BioTech
-            //maybe this takes priority over Trait desires?
-        }
-
-        public void ActivateIdeoDesires()
-        {
-            if (!ModsConfig.IdeologyActive)
-                return;
-
-            //select as many ideologion-associated desires as possible for each desire tier
-            //will require Ideology
-        }
-
-        public void ActivateTitleDesires()
-        {
-            if (!ModsConfig.RoyaltyActive)
-                return;
-
-            //select as many royalty title-associated desires as possible for each desire tier
-            //will require royalty
-            //higher titles will probably raise the desire slots for each tier
-        }
-
-        public void ActivateGenericDesires()
-        {
-            //fill remaining desire slots for each desire tier with generic desires
+                foreach (RoomDesire desire in roomDesireHashSet)
+                {
+                    roomDesireListList[desire.desireTier - 1].Add(desire);
+                }
+            }
         }
     }
 }

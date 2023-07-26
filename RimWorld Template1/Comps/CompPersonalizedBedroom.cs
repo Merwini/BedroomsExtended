@@ -8,13 +8,14 @@ using RimWorld;
 
 namespace nuff.PersonalizedBedrooms
 {
+    [Serializable]
     class CompPersonalizedBedroom : ThingComp
     {
         CompProperties_PersonalizedBedroom Props => props as CompProperties_PersonalizedBedroom;
 
         internal RoomDesireSet roomDesireSet;
 
-        public int desireSlots;
+        public int desireSlots = 5;
 
         public float cachedBedroomWealth = -1;
         public int cachedThoughtStage = -1;
@@ -44,6 +45,15 @@ namespace nuff.PersonalizedBedrooms
                 cachedBedroomWealth = currentBedroomWealth;
             }
             return cachedThoughtStage;
+        }
+
+        public override void PostExposeData()
+        {
+            base.PostExposeData();
+            Scribe_Deep.Look(ref roomDesireSet, "roomDesireSet", this.parent as Pawn);
+            Scribe_Values.Look(ref desireSlots, "desireSlots", 5);
+            Scribe_Values.Look(ref cachedBedroomWealth, "cachedBedroomWealth", -1);
+            Scribe_Values.Look(ref cachedThoughtStage, "cachedThoughtStage", -1);
         }
     }
 }

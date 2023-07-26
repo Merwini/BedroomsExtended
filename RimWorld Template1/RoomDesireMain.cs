@@ -10,7 +10,7 @@ namespace nuff.PersonalizedBedrooms
     [StaticConstructorOnStartup]
     class RoomDesireMain
     {
-        static Dictionary<RoomDesireDef,RoomDesire> desiresDictionary = new Dictionary<RoomDesireDef, RoomDesire>();
+        internal static Dictionary<RoomDesireDef,RoomDesire> desiresDictionary = new Dictionary<RoomDesireDef, RoomDesire>();
 
         internal static List<HashSet<RoomDesire>> desiresByTier = new List<HashSet<RoomDesire>>
         {
@@ -101,10 +101,12 @@ namespace nuff.PersonalizedBedrooms
 
         static void FrontFillUpgrades()
         {
+            Log.Warning("Starting FrontFillUpgrades");
             for (int i = 0; i < desiresByTier.Count; i++)
             {
                 foreach (RoomDesire rd in desiresByTier[i])
                 {
+                    Log.Warning("FFU "+rd.label);
                     List<RoomDesireDef> rddList = rd.def.upgradesFrom;
                     if (rddList?.Count > 0)
                     {
@@ -133,14 +135,17 @@ namespace nuff.PersonalizedBedrooms
 
         static void BackFillSatisfiers()
         {
-            for (int i = 4; i <= 0; i--)
+            Log.Warning("Starting BackFillSatisfiers");
+            for (int i = 4; i >= 0; i--)
             {
                 foreach (RoomDesire rd in desiresByTier[i])
                 {
+                    Log.Warning("Room desire: " + rd.label);
                     foreach (RoomDesire rd2 in rd.upgradesFrom)
                     {
-                        rd.satisfyingThingsExpanded.UnionWith(rd2.satisfyingThingsExpanded);
-                        rd.satisfyingTerrainsExpanded.UnionWith(rd2.satisfyingTerrainsExpanded);
+                        Log.Warning("Upgrades from: " + rd2.label);
+                        rd2.satisfyingThingsExpanded.UnionWith(rd.satisfyingThingsExpanded);
+                        rd2.satisfyingTerrainsExpanded.UnionWith(rd.satisfyingTerrainsExpanded);
                     }
                 }
             }

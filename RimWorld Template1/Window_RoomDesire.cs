@@ -71,6 +71,9 @@ namespace nuff.PersonalizedBedrooms
 
             for (int i = 0; i < dictList.Count; i++)
             {
+                displayDesiresTotal = 0;
+                displayDesiresMet = 0;
+
                 foreach (KeyValuePair<RoomDesire, bool> entry in dictList[i])
                 {
                     displayDesiresTotal++;
@@ -106,7 +109,7 @@ namespace nuff.PersonalizedBedrooms
                     Rect iconRect = new Rect(labelRect.xMax - 30f, labelRect.y, 24f, 24f);
 
                     // Draw the icon
-                    Texture2D iconTexture = ContentFinder<Texture2D>.Get("UI/Icons/Info");
+                    Texture2D iconTexture = ContentFinder<Texture2D>.Get("UI/Icons/QuestionMark");
                     Widgets.Label(labelRect, entry.Key.label);
                     if (Mouse.IsOver(iconRect) && Event.current.type == EventType.Repaint)
                     {
@@ -121,6 +124,12 @@ namespace nuff.PersonalizedBedrooms
 
                     list.Gap(list.verticalSpacing);
                 }
+            }
+
+            Rect closeButtonRect = new Rect(inRect.width - CloseButSize.x, 0f, CloseButSize.x, CloseButSize.y);
+            if (Widgets.ButtonText(closeButtonRect, "Close"))
+            {
+                Close();
             }
         }
 

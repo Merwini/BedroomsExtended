@@ -7,7 +7,7 @@ using Verse;
 
 namespace nuff.PersonalizedBedrooms
 {
-    public class RoomDesire
+    public class RoomDesire : IExposable, ILoadReferenceable
     {
         //todo
 
@@ -78,6 +78,38 @@ namespace nuff.PersonalizedBedrooms
                 satS.Add(satL[i]);
             }
             return satS;
+        }
+
+        public void ExposeData()
+        {
+            Scribe_Defs.Look(ref def, "def");
+            Scribe_Values.Look(ref label, "label");
+            Scribe_Collections.Look(ref upgradesFrom, "upgradesFrom", LookMode.Reference);
+            Scribe_Collections.Look(ref incompatibleWith, "incompatibleWith", LookMode.Reference);
+            Scribe_Collections.Look(ref satisfyingThingsExpanded, "satisfyingThingsExpanded", LookMode.Def);
+            Scribe_Collections.Look(ref satisfyingTerrainsExpanded, "satisfyingTerrainsExpanded", LookMode.Def);
+            Scribe_Values.Look(ref desireTier, "desireTier");
+
+            if (Scribe.mode == LoadSaveMode.Saving)
+            {
+                string workerClassName = worker?.GetType()?.FullName;
+                Scribe_Values.Look(ref workerClassName, "workerClass");
+            }
+            else if (Scribe.mode == LoadSaveMode.LoadingVars)
+            {
+                string workerClassName = null;
+                Scribe_Values.Look(ref workerClassName, "workerClass");
+                if (!string.IsNullOrEmpty(workerClassName))
+                {
+                    Type workerClass = GenTypes.GetTypeInAnyAssembly(workerClassName);
+                    worker = (RoomDesireWorker)Activator.CreateInstance(workerClass, this);
+                }
+            }
+        }
+
+        public string GetUniqueLoadID()
+        {
+            return "Desire_" + def.defName;
         }
     }
 }
