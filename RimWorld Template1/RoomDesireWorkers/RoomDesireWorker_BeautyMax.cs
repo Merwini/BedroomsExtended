@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Verse;
 using RimWorld;
 
-namespace nuff.PersonalizedBedrooms.RoomDesireWorkers
+namespace nuff.PersonalizedBedrooms
 {
     class RoomDesireWorker_BeautyMax : RoomDesireWorker
     {

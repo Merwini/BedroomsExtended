@@ -38,7 +38,13 @@ namespace nuff.PersonalizedBedrooms
         {
             this.pawn = pawn;
         }
-
+        public override Vector2 InitialSize
+        {
+            get
+            {
+                return new Vector2(500, 800);
+            }
+        }
         public override void PreOpen()
         {
             base.PreOpen();

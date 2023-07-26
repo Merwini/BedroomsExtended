@@ -1,42 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<DesireDef Abstract="True" Name="DesireRoomSizeBase">
-		<workerClass>RoomDesireWorker_RoomSize</workerClass>
-	</DesireDef>
+	<nuff.PersonalizedBedrooms.RoomDesireDef Abstract="True" Name="DesireRoomSizeBase">
+		<workerClass>nuff.PersonalizedBedrooms.RoomDesireWorker_RoomSize</workerClass>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
 
-	<DesireDef ParentName="DesireRoomSizeBase">
+	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireRoomSizeBase">
 		<defName>npb_roomsize_tierone</defName>
 		<label>I want my bedroom to be at least average-sized</label>
 		<description>I want my bedroom to be at least average-sized.</description>
 		<desireTier>1</desireTier>
-	</DesireDef>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
 	
-	<DesireDef ParentName="DesireRoomSizeBase">
+	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireRoomSizeBase">
 		<defName>npb_roomsize_tiertwo</defName>
 		<label>I want my bedroom to be somewhat spacious</label>
 		<description>I want my bedroom to be at least somewhat spacious.</description>
 		<desireTier>2</desireTier>
-	</DesireDef>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
 
-	<DesireDef ParentName="DesireRoomSizeBase">
+	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireRoomSizeBase">
 		<defName>npb_roomsize_tierthree</defName>
 		<label>I want my bedroom to be quite spacious</label>
 		<description>I want my bedroom to be at least quite spacious.</description>
 		<desireTier>3</desireTier>
-	</DesireDef>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
 
-	<DesireDef ParentName="DesireRoomSizeBase">
+	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireRoomSizeBase">
 		<defName>npb_roomsize_tierfour</defName>
 		<label>I want my bedroom to be very spacious</label>
 		<description>I want my bedroom to be at least very spacious.</description>
 		<desireTier>4</desireTier>
-	</DesireDef>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
 
-	<DesireDef ParentName="DesireRoomSizeBase">
+	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireRoomSizeBase">
 		<defName>npb_roomsize_tierfive</defName>
 		<label>I want my bedroom to be extremely spacious</label>
 		<description>I want my bedroom to be extremely spacious.</description>
 		<desireTier>5</desireTier>
-	</DesireDef>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
 	
 </Defs>

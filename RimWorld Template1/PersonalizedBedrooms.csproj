@@ -17,7 +17,7 @@
     <DebugSymbols>false</DebugSymbols>
     <DebugType>none</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>Assemblies\</OutputPath>
+    <OutputPath>PersonalizedBedrooms\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -96,12 +96,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PersonalizedBedrooms\About\About.xml" />
-    <Content Include="PersonalizedBedrooms\Defs\DesireDefs\Desires_BeautyAvg.xml" />
-    <Content Include="PersonalizedBedrooms\Defs\DesireDefs\Desires_BeautyMax.xml" />
-    <Content Include="PersonalizedBedrooms\Defs\DesireDefs\Desires_Floors.xml" />
-    <Content Include="PersonalizedBedrooms\Defs\DesireDefs\Desires_Generic.xml" />
-    <Content Include="PersonalizedBedrooms\Defs\DesireDefs\Desires_RoomSize.xml" />
-    <Content Include="PersonalizedBedrooms\Defs\DesireDefs\Desires_ThingsQuality.xml" />
+    <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_BeautyAvg.xml" />
+    <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_BeautyMax.xml" />
+    <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_Floors.xml" />
+    <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_Generic.xml" />
+    <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_RoomSize.xml" />
+    <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_ThingsQuality.xml" />
     <Content Include="TODO list.txt" />
   </ItemGroup>
   <ItemGroup>

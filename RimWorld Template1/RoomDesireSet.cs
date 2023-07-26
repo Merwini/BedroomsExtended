@@ -42,8 +42,16 @@ namespace nuff.PersonalizedBedrooms
             for (int i = 0; i < roomDesireListList.Count; i++)
             {
                 int selectedDesires = 0;
-                roomDesireListList[i].Union(ReturnDesiresFromUpgrades(i, generatedDesiresPerTier - roomDesireListList[i].Count));
-                roomDesireListList[i].Union(ReturnDesiresFromRandom(i, generatedDesiresPerTier - roomDesireListList[i].Count));
+                roomDesireListList[i] = roomDesireListList[i].Union(ReturnDesiresFromUpgrades(i, generatedDesiresPerTier - roomDesireListList[i].Count)).ToList();
+                roomDesireListList[i] = roomDesireListList[i].Union(ReturnDesiresFromRandom(i, generatedDesiresPerTier - roomDesireListList[i].Count)).ToList();
+            }
+            for (int i = 0; i < roomDesireListList.Count; i++)
+            {
+                Log.Warning("Tier " + i + " desires: " + roomDesireListList[i].Count);
+                foreach (RoomDesire rd in roomDesireListList[i])
+                {
+                    Log.Warning(rd.label);
+                }
             }
         }
 
@@ -53,24 +61,18 @@ namespace nuff.PersonalizedBedrooms
             List<RoomDesire> selectedDesires = new List<RoomDesire>();
             int desiresSelected = 0;
 
-            Log.Warning("Debug 1");
             //attempt to select desires that are upgradesof existing ones
             foreach (RoomDesire desire in RoomDesireMain.desiresByTier[desireTier])
             {
-                Log.Warning("Debug 1a");
                 foreach (RoomDesire desire2 in desire.upgradesFrom)
                 {
-                    Log.Warning("Debug 1b");
                     if (roomDesireHashSet.Contains(desire2))
                     {
-                        Log.Warning("Debug 1c");
                         possibleDesires.Add(desire);
                     }
                 }
             }
-            Log.Warning("Debug 2");
             possibleDesires.Shuffle();
-            Log.Warning("Debug 3");
             for (int i = 0; i < possibleDesires.Count; i++)
             {
                 if (desiresSelected == desiresDesired)
@@ -113,7 +115,7 @@ namespace nuff.PersonalizedBedrooms
                     possibleDesires.Add(desire);
                 }
                 */
-
+                Log.Warning("Adding possible desire " + desire.label);
                 possibleDesires.Add(desire);
             }
 
@@ -126,6 +128,7 @@ namespace nuff.PersonalizedBedrooms
 
                 if (TrySelectDesire(possibleDesires[i]))
                 {
+                    Log.Warning("Selecting desire " + possibleDesires[i].label);
                     selectedDesires.Add(possibleDesires[i]);
                     desiresSelected++;
                 }
@@ -136,15 +139,14 @@ namespace nuff.PersonalizedBedrooms
 
         public bool TrySelectDesire(RoomDesire desire)
         {
-            bool selected = false;
             foreach (RoomDesire desire2 in roomDesireHashSet)
             {
-                if (!desire2.incompatibleWith.Contains(desire))
+                if (desire2.incompatibleWith.Contains(desire))
                 {
-                    return roomDesireHashSet.Add(desire);
+                    return false;
                 }
             }
-            return selected;
+            return roomDesireHashSet.Add(desire);
         }
 
         public HashSet<Trait> CacheTraits()

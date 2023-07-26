@@ -74,6 +74,8 @@ namespace nuff.PersonalizedBedrooms
             }
         }
 
+        //First attempt fails due to exception: Collection was modified
+        /*
         static void FrontFillUpgrades()
         {
             for (int i = 0; i < desiresByTier.Count; i++)
@@ -88,6 +90,39 @@ namespace nuff.PersonalizedBedrooms
                             rd.upgradesFrom.Add(desiresDictionary.TryGetValue(rddList[j]));
                         }
                         foreach (RoomDesire rd2 in rd.upgradesFrom)
+                        {
+                            rd.upgradesFrom.UnionWith(rd2.upgradesFrom);
+                        }
+                    }
+                }
+            }
+        }
+        */
+
+        static void FrontFillUpgrades()
+        {
+            for (int i = 0; i < desiresByTier.Count; i++)
+            {
+                foreach (RoomDesire rd in desiresByTier[i])
+                {
+                    List<RoomDesireDef> rddList = rd.def.upgradesFrom;
+                    if (rddList?.Count > 0)
+                    {
+                        // Create a separate collection to store the items to add to upgradesFrom
+                        HashSet<RoomDesire> upgradesToAdd = new HashSet<RoomDesire>();
+                        for (int j = 0; j < rddList.Count; j++)
+                        {
+                            upgradesToAdd.Add(desiresDictionary.TryGetValue(rddList[j]));
+                        }
+
+                        // Add the items from upgradesToAdd to the upgradesFrom set
+                        foreach (RoomDesire rd2 in upgradesToAdd)
+                        {
+                            rd.upgradesFrom.Add(rd2);
+                        }
+
+                        // After adding the immediate upgrades, add all upgrades from the upgradesFrom sets of those upgrades
+                        foreach (RoomDesire rd2 in upgradesToAdd)
                         {
                             rd.upgradesFrom.UnionWith(rd2.upgradesFrom);
                         }
