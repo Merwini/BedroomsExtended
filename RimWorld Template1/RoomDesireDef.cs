@@ -24,6 +24,8 @@ namespace nuff.PersonalizedBedrooms
 
         public List<RoomDesireDef> incompatibleWith;
 
+        public List<ThingRequirement> requiredThings;
+
         public List<ThingDef> satisfyingThings;
 
         //changed to strings, so that TerrainTemplateDefs can be included as well. Will be parsed into Defs when the Desire is instantiated

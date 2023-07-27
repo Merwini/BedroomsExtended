@@ -91,6 +91,7 @@
     <Compile Include="RoomDesireWorkers\RoomDesireWorker_Floor.cs" />
     <Compile Include="RoomDesireWorkers\RoomDesireWorker_RoomSize.cs" />
     <Compile Include="RoomDesireWorkers\RoomDesireWorker_Thing.cs" />
+    <Compile Include="RoomDesireWorkers\RoomDesireWorker_Things.cs" />
     <Compile Include="ThingRequirement.cs" />
     <Compile Include="Window_DesireDescription.cs" />
     <Compile Include="Window_RoomDesire.cs" />

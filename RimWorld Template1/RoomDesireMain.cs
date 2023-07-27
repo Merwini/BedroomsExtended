@@ -139,7 +139,6 @@ namespace nuff.PersonalizedBedrooms
                 {
                     foreach (RoomDesire rd2 in rd.upgradesFrom)
                     {
-                        rd2.satisfyingThingsExpanded.UnionWith(rd.satisfyingThingsExpanded);
                         rd2.satisfyingTerrainsExpanded.UnionWith(rd.satisfyingTerrainsExpanded);
                     }
                 }

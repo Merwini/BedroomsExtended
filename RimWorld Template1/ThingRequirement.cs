@@ -4,18 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Verse;
+using RimWorld;
 
 namespace nuff.PersonalizedBedrooms
 {
-    //This is for a planned Worker that will check for combinations of things e.x. a table and a chair, but that may come in a later update
-    /*
-    class ThingRequirement
+    public class ThingRequirement
     {
-        List<ThingDef> satisfyingThings;
+        public List<ThingDef> satisfyingThings;
 
-        int quantityNeeded;
+        public HashSet<ThingDef> satisfyingThingsExpanded;
 
+        public List<string> satisfyingTags;
 
+        public int quantityNeeded = 1;
+
+        public QualityCategory minimumQuality = QualityCategory.Awful;
     }
-    */
 }

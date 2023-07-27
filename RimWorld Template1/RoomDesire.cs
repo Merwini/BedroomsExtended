@@ -25,6 +25,8 @@ namespace nuff.PersonalizedBedrooms
         //will be filled by RoomDesireMain
         internal HashSet<RoomDesire> incompatibleWith = new HashSet<RoomDesire>();
 
+        internal List<ThingRequirement> requiredThings = new List<ThingRequirement>();
+
         internal HashSet<ThingDef> satisfyingThingsExpanded = new HashSet<ThingDef>();
 
         internal HashSet<TerrainDef> satisfyingTerrainsExpanded = new HashSet<TerrainDef>();
@@ -45,11 +47,40 @@ namespace nuff.PersonalizedBedrooms
             {
                 //TODO throw new Exception("Invalid worker type")
             }
+            //obsolete: now uses RequiredThings
+            /*
             List<ThingDef> sat1 = def.satisfyingThings ?? new List<ThingDef>();
             for (int i = 0; i < sat1.Count; i++)
             {
                 satisfyingThingsExpanded.Add(sat1[i]);
             }
+            */
+
+            List<ThingRequirement> requiredThings = def.requiredThings;
+            if (!requiredThings.NullOrEmpty<ThingRequirement>())
+            {
+                for (int i = 0; i < requiredThings.Count; i++)
+                {
+                    List<ThingDef> satisfyingThings = requiredThings[i].satisfyingThings;
+                    List<string> satisfyingTags = requiredThings[i].satisfyingTags;
+                    if (!satisfyingThings.NullOrEmpty<ThingDef>())
+                    {
+                        for (int j = 0; j < satisfyingThings.Count; j++)
+                        {
+                            requiredThings[i].satisfyingThingsExpanded.Add(satisfyingThings[j]);
+                        }
+                    }
+                    else if (!satisfyingTags.NullOrEmpty<string>())
+                    {
+                        //TODO, do I really need a tags expanded?
+                    }
+                    else
+                    {
+                        Log.Error("Error: Desire \"" + label + "\" has no satisfying things or tags.");
+                    }
+                }
+            }
+
             List<string> sat2 = def.satisfyingTerrains ?? new List<string>();
             for (int i = 0; i < sat2.Count; i++)
             {
