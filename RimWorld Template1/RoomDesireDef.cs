@@ -40,5 +40,12 @@ namespace nuff.PersonalizedBedrooms
         public List<RoyalTitleDef> associatedTitles;
 
         public int desireTier;
+
+        public RoomDesire registeredDesire;
+
+        public RoomDesire GetRoomDesire()
+        {
+            return this.registeredDesire;
+        }
     }
 }

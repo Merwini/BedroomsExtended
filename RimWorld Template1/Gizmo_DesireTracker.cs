@@ -29,5 +29,6 @@ namespace nuff.PersonalizedBedrooms
                 Find.WindowStack.Add(newWindow);
             }
         }
+
     }
 }

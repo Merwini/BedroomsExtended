@@ -51,8 +51,8 @@ namespace nuff.PersonalizedBedrooms
             //TODO recalculate which desires are met and which aren't. Cache the results so they aren't continually recalculated while the window is open
             comp = pawn.TryGetComp<CompPersonalizedBedroom>();
             room = pawn.ownership.OwnedBed.GetRoom();
-            dictList = comp.roomDesireSet.GetDesiresMetCache(room);
-            desiresNeeded = comp.roomDesireSet.minimumDesiresMetPerTier;
+            dictList = comp.GetDesiresMetCache(room);
+            desiresNeeded = comp.minimumDesiresMetPerTier;
         }
 
         public override void DoWindowContents(Rect inRect)

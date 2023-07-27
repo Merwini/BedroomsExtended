@@ -69,6 +69,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCompToHumanlikes.cs" />
     <Compile Include="RoomDesireMain.cs" />
     <Compile Include="RoomDesireWorkers\RoomDesireWorker.cs" />
     <Compile Include="Gizmo_DesireTracker.cs" />

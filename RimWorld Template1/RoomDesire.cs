@@ -62,6 +62,7 @@ namespace nuff.PersonalizedBedrooms
                     }
                 }
             }
+            def.registeredDesire = this;
         }
 
         public bool IsMet(Pawn pawn, Room room)

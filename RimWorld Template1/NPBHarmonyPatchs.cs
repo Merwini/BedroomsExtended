@@ -98,8 +98,12 @@ namespace nuff.PersonalizedBedrooms
                 CompPersonalizedBedroom newComp = new CompPersonalizedBedroom();
                 actor.AllComps.Add(newComp);
                 comp = newComp;
-                comp.Initialize(new CompProperties_PersonalizedBedroom());
                 comp.parent = actor;
+                comp.Initialize(new CompProperties_PersonalizedBedroom());
+            }
+            if (!comp.desiresGenerated)
+            {
+                comp.DoLogic();
             }
 
             return comp.ReturnThoughtStage(bed);
