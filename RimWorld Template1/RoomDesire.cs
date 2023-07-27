@@ -45,7 +45,8 @@ namespace nuff.PersonalizedBedrooms
             }
             else
             {
-                //TODO throw new Exception("Invalid worker type")
+                Log.Error("Error: RoomDesire \"" + label + "\" has an invalid RoomDesireWorker. Using default worker.");
+                worker = (RoomDesireWorker)Activator.CreateInstance(typeof(RoomDesireWorker_Default), this);
             }
             //obsolete: now uses RequiredThings
             /*
