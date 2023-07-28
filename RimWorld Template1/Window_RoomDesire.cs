@@ -50,6 +50,8 @@ namespace nuff.PersonalizedBedrooms
             base.PreOpen();
             //TODO recalculate which desires are met and which aren't. Cache the results so they aren't continually recalculated while the window is open
             comp = pawn.TryGetComp<CompPersonalizedBedroom>();
+            if (!comp.desiresGenerated)
+                comp.DoLogic();
             room = pawn?.ownership?.OwnedBed?.GetRoom() ?? null;
             if (room != null)
             {
