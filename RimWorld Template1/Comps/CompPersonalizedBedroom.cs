@@ -78,6 +78,18 @@ namespace nuff.PersonalizedBedrooms
             return cachedThoughtStage;
         }
 
+        public void Reset()
+        {
+            for (int i = 0; i < roomDesireListList.Count; i++)
+            {
+                cachedBedroomWealth = -1;
+                cachedThoughtStage = -1;
+                roomDesireHashSet.Clear();
+                roomDesireListList[i].Clear();
+                GenerateDesires();
+            }
+        }
+
         public void GenerateDesires()
         {
             //todo adjust i to account for easygoing or picky pawns
