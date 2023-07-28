@@ -19,7 +19,8 @@ namespace nuff.PersonalizedBedrooms
         public override bool IsMet(Pawn pawn, Room room)
         {
             bool isMet = false;
-            foreach (Thing thing in room.ContainedAndAdjacentThings)
+            CompPersonalizedBedroom comp = pawn.TryGetComp<CompPersonalizedBedroom>();
+            foreach (Thing thing in comp.thingsInRoomCache)
             {
                 if (thing is Building building && building.GetStatValue(StatDefOf.Beauty) >= minimumBeauty)
                 {

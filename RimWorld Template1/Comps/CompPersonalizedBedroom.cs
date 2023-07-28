@@ -26,6 +26,7 @@ namespace nuff.PersonalizedBedrooms
         internal bool desiresGenerated;
 
         private HashSet<Trait> traitCacheSet;
+        internal List<Thing> thingsInRoomCache;
 
         private List<List<RoomDesire>> roomDesireListList = new List<List<RoomDesire>>
         {
@@ -258,6 +259,7 @@ namespace nuff.PersonalizedBedrooms
         public int GetScoreStage(Room room)
         {
             int scoreStage = 0;
+            thingsInRoomCache = room.ContainedAndAdjacentThings;
             for (int i = 0; i < 5; i++)
             {
                 int desiresMetForTier = 0;

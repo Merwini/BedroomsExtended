@@ -56,6 +56,7 @@ namespace nuff.PersonalizedBedrooms
             if (room != null)
             {
                 dictList = comp.GetDesiresMetCache(room);
+                comp.thingsInRoomCache = room.ContainedAndAdjacentThings;
             }
             desiresNeeded = comp.minimumDesiresMetPerTier;
         }

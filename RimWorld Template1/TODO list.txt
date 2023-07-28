@@ -1,14 +1,4 @@
-﻿Add step to whatever calculates room stats to check for specific conditions
-	to reduce overhead:
-		store value of room wealth
-		on a rare tick, if wealth != stored value, run the individual item check, then update the wealth stored value
-Add gizmo to objects in a bedroom to display requirements. Or maybe add to the pawn?
-Add comp to pawns to track their desires
-	find a way to add this to existing pawns, so it is savegame compatible
-Change moodlet to check room desires instead of default impressiveness
-	There will be tiers of desires, and each pawn will generate X desires for each tier. Moodlet will upgrade if Y desires for that tier are satisfied (3/5?)
-	Higher-tier desires will be weighted to favor upgraded forms of lower-tier desires, then trait-related desires, then randomly selected ones
-Change vanilla room traits to use new moodlet system
+﻿Change vanilla room traits to use new moodlet system
 	Greedy - Requires an extra desire option to be met per each tier (4/5?)
 	Jealous - Unhappy if anyone has a higher moodlet tier
 	Ascetic - will use a separate set of desires? 
@@ -17,15 +7,10 @@ Custom traits and/or genes
 	more desire slots per tier
 	fewer desire options per tier
 	more desire options per tier
-Make a Def for room desires, so they are xml-configured
-	Mood tier
-	upgradesFrom
-	upgradesTo
 Make a Debug tool to regenerate a pawn's desires
 
 Display cases, with custom float menu option for objects to place in a targeted display case?
 	maybe not worth it
-
 
 Ideas for desires (vanilla has 8 moodlets for bedroom, ranging from -4 to +8):
 	Upgradable desires:

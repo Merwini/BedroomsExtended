@@ -16,7 +16,8 @@ namespace nuff.PersonalizedBedrooms
 
         public override bool IsMet(Pawn pawn, Room room)
         {
-            List<Thing> things = room.ContainedAndAdjacentThings;
+            CompPersonalizedBedroom comp = pawn.TryGetComp<CompPersonalizedBedroom>();
+            List<Thing> things = comp.thingsInRoomCache;
             HashSet<ThingDef> satisfyingThings = parent.satisfyingThingsExpanded;
             int minQuantity = parent.def.minimumQuantity;
             if (minQuantity <= 0)
