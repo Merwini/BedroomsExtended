@@ -16,7 +16,8 @@ namespace nuff.PersonalizedBedrooms
 
         public override bool IsMet(Pawn pawn, Room room)
         {
-            List<Thing> thingsInRoom = room.ContainedAndAdjacentThings;
+            CompPersonalizedBedroom comp = pawn.TryGetComp<CompPersonalizedBedroom>();
+            List<Thing> thingsInRoom = comp.thingsInRoomCache;
             List<ThingRequirement> thingRequirements = parent.requiredThings;
             int requirementsTotal = thingRequirements.Count;
             int requirementsMet = 0;
