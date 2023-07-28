@@ -9,7 +9,7 @@
 		<label>I want everything in my room to be poor quality or better</label>
 		<description>If it has a quality, it had better not be awful.</description>
 		<desireTier>1</desireTier>
-		<minimumQuality>QualityCategory.Poor</minimumQuality>
+		<minimumQuality>Poor</minimumQuality>
 	</nuff.PersonalizedBedrooms.RoomDesireDef>
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireRoomQualityBase">
@@ -17,7 +17,7 @@
 		<label>I want everything in my room to be normal quality or better</label>
 		<description>If it has a quality, it had better be at least normal.</description>
 		<desireTier>2</desireTier>
-		<minimumQuality>QualityCategory.Normal</minimumQuality>
+		<minimumQuality>Normal</minimumQuality>
 	</nuff.PersonalizedBedrooms.RoomDesireDef>
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireRoomQualityBase">
@@ -25,7 +25,7 @@
 		<label>I want everything in my room to be good quality or better</label>
 		<description>If it has a quality, it had better be at least good.</description>
 		<desireTier>3</desireTier>
-		<minimumQuality>QualityCategory.Good</minimumQuality>
+		<minimumQuality>Good</minimumQuality>
 	</nuff.PersonalizedBedrooms.RoomDesireDef>
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireRoomQualityBase">
@@ -33,7 +33,7 @@
 		<label>I want everything in my room to be excellent quality or better</label>
 		<description>If it has a quality, it had better be at least excellent.</description>
 		<desireTier>4</desireTier>
-		<minimumQuality>QualityCategory.Excellent</minimumQuality>
+		<minimumQuality>Excellent</minimumQuality>
 	</nuff.PersonalizedBedrooms.RoomDesireDef>
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireRoomQualityBase">
@@ -41,6 +41,6 @@
 		<label>I want everything in my room to be masterwork quality or better</label>
 		<description>If it has a quality, it had better be at least masterwork.</description>
 		<desireTier>5</desireTier>
-		<minimumQuality>QualityCategory.Masterwork</minimumQuality>
+		<minimumQuality>Masterwork</minimumQuality>
 	</nuff.PersonalizedBedrooms.RoomDesireDef>
 </Defs>
