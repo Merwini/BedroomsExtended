@@ -105,7 +105,7 @@
     <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_Floors.xml" />
     <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_Generic.xml" />
     <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_RoomSize.xml" />
-    <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_ThingsQuality.xml" />
+    <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_RoomQuality.xml" />
     <Content Include="TODO list.txt" />
   </ItemGroup>
   <ItemGroup>

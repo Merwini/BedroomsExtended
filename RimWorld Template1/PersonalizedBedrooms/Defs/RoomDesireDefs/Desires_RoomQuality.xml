@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<nuff.PersonalizedBedrooms.RoomDesireDef Abstract="True" Name="DesireRoomQualityBase">
+		<workerClass>nuff.PersonalizedBedrooms.RoomDesireWorker_Quality</workerClass>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
+
+	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireRoomQualityBase">
+		<defName>npb_roomquality_tierone</defName>
+		<label>I want everything in my room to be poor quality or better</label>
+		<description>If it has a quality, it had better not be awful.</description>
+		<desireTier>1</desireTier>
+		<minimumQuality>QualityCategory.Poor</minimumQuality>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
+
+	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireRoomQualityBase">
+		<defName>npb_roomquality_tiertwo</defName>
+		<label>I want everything in my room to be normal quality or better</label>
+		<description>If it has a quality, it had better be at least normal.</description>
+		<desireTier>2</desireTier>
+		<minimumQuality>QualityCategory.Normal</minimumQuality>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
+
+	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireRoomQualityBase">
+		<defName>npb_roomquality_tierthree</defName>
+		<label>I want everything in my room to be good quality or better</label>
+		<description>If it has a quality, it had better be at least good.</description>
+		<desireTier>3</desireTier>
+		<minimumQuality>QualityCategory.Good</minimumQuality>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
+
+	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireRoomQualityBase">
+		<defName>npb_roomquality_tierfour</defName>
+		<label>I want everything in my room to be excellent quality or better</label>
+		<description>If it has a quality, it had better be at least excellent.</description>
+		<desireTier>4</desireTier>
+		<minimumQuality>QualityCategory.Excellent</minimumQuality>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
+
+	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireRoomQualityBase">
+		<defName>npb_roomquality_tierfive</defName>
+		<label>I want everything in my room to be masterwork quality or better</label>
+		<description>If it has a quality, it had better be at least masterwork.</description>
+		<desireTier>5</desireTier>
+		<minimumQuality>QualityCategory.Masterwork</minimumQuality>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
+</Defs>
