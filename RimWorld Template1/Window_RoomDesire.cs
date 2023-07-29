@@ -42,7 +42,7 @@ namespace nuff.PersonalizedBedrooms
         {
             get
             {
-                return new Vector2(500, 800);
+                return new Vector2(550, 850);
             }
         }
         public override void PreOpen()
@@ -100,7 +100,6 @@ namespace nuff.PersonalizedBedrooms
                     }
                     string tierLabel = $"<color=white>Tier {desireTierStrings[i]} desires. ({displayDesiresMet.ToString()}/{displayDesiresTotal.ToString()} met. Status: </color>{displayTierColor}{displayTierStatus}</color>";
                     list.Label(tierLabel);
-
                     foreach (KeyValuePair<RoomDesire, bool> entry in dictList[i])
                     {
                         if (entry.Value)
@@ -115,20 +114,20 @@ namespace nuff.PersonalizedBedrooms
                         // Draw the label
                         Rect labelRect = list.GetRect(Verse.Text.LineHeight);
                         Rect iconRect = new Rect(labelRect.xMax - 30f, labelRect.y, 24f, 24f);
+                        Widgets.Label(labelRect, entry.Key.label);
 
                         // Draw the icon
                         Texture2D iconTexture = ContentFinder<Texture2D>.Get("UI/Icons/QuestionMark");
-                        Widgets.Label(labelRect, entry.Key.label);
-                        if (Mouse.IsOver(iconRect) && Event.current.type == EventType.Repaint)
+                        GUI.DrawTexture(iconRect, iconTexture);
+                        TooltipHandler.TipRegion(iconRect, entry.Key.def.description);
+                        /*
+                        if (Widgets.ButtonImage(iconRect, iconTexture))
                         {
-                            GUI.DrawTexture(iconRect, iconTexture);
-                            if (Widgets.ButtonInvisible(iconRect))
-                            {
-                                // Handle icon click here
-                                string additionalInfo = entry.Key.def.description;
-                                Find.WindowStack.Add(new Window_DesireDescription(additionalInfo));
-                            }
+                            // Handle button click here
+                            string additionalInfo = entry.Key.def.description;
+                            Find.WindowStack.Add(new Window_DesireDescription(additionalInfo));
                         }
+                        */
 
                         list.Gap(list.verticalSpacing);
                     }
@@ -140,11 +139,12 @@ namespace nuff.PersonalizedBedrooms
                 list.Label("Error: pawn has no current bedroom");
             }
 
-            Rect closeButtonRect = new Rect(inRect.width - CloseButSize.x, 0f, CloseButSize.x, CloseButSize.y);
+            Rect closeButtonRect = new Rect(inRect.width / 2f - CloseButSize.x / 2f, inRect.height - CloseButSize.y, CloseButSize.x, CloseButSize.y);
             if (Widgets.ButtonText(closeButtonRect, "Close"))
             {
-                Close();
+                this.Close();
             }
+            list.End();
         }
 
         public override void Close(bool doCloseSound = true)
