@@ -17,7 +17,7 @@
     <DebugSymbols>false</DebugSymbols>
     <DebugType>none</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>PersonalizedBedrooms\Assemblies\</OutputPath>
+    <OutputPath>..\..\..\..\..\..\Program Files %28x86%29\Steam\steamapps\common\RimWorld\Mods\PersonalizedBedrooms\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -103,6 +103,7 @@
     <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_BeautyAvg.xml" />
     <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_BeautyMax.xml" />
     <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_Floors.xml" />
+    <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_FurnitureCombo.xml" />
     <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_Generic.xml" />
     <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_RoomSize.xml" />
     <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_RoomQuality.xml" />

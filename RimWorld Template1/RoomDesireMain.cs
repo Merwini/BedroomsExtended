@@ -22,6 +22,7 @@ namespace nuff.PersonalizedBedrooms
         };
 
         internal static HashSet<TerrainDef> terrainHashSet = new HashSet<TerrainDef>();
+        internal static HashSet<RoomDesire> terrainDesires = new HashSet<RoomDesire>();
 
         static RoomDesireMain()
         {
@@ -29,7 +30,7 @@ namespace nuff.PersonalizedBedrooms
             InstantiateAllDesires();
             FrontFillUpgrades();
             BackFillSatisfiers();
-            //TODO handle incompatiblewith
+            FillIncompatibilities();
         }
 
         //I think making a HashSet will save cycles in the long run. Also necessary due to implied defs created at runtime
@@ -49,6 +50,11 @@ namespace nuff.PersonalizedBedrooms
                 RoomDesire rd = new RoomDesire(rdd);
                 desiresDictionary.Add(rdd,rd);
                 SortDesireTier(rd);
+
+                if (rd.worker is RoomDesireWorker_Floor)
+                {
+                    terrainDesires.Add(rd);
+                }
             }
         }
 
@@ -73,31 +79,6 @@ namespace nuff.PersonalizedBedrooms
                     break;
             }
         }
-
-        //First attempt fails due to exception: Collection was modified
-        /*
-        static void FrontFillUpgrades()
-        {
-            for (int i = 0; i < desiresByTier.Count; i++)
-            {
-                foreach (RoomDesire rd in desiresByTier[i])
-                {
-                    List<RoomDesireDef> rddList = rd.def.upgradesFrom;
-                    if (rddList?.Count > 0)
-                    {
-                        for (int j = 0; j < rddList.Count; j++)
-                        {
-                            rd.upgradesFrom.Add(desiresDictionary.TryGetValue(rddList[j]));
-                        }
-                        foreach (RoomDesire rd2 in rd.upgradesFrom)
-                        {
-                            rd.upgradesFrom.UnionWith(rd2.upgradesFrom);
-                        }
-                    }
-                }
-            }
-        }
-        */
 
         static void FrontFillUpgrades()
         {
@@ -141,6 +122,33 @@ namespace nuff.PersonalizedBedrooms
                     {
                         rd2.satisfyingTerrainsExpanded.UnionWith(rd.satisfyingTerrainsExpanded);
                     }
+                }
+            }
+        }
+
+        static void FillIncompatibilities()
+        {
+            //make sure incompatibilities are reciprocal
+            foreach (RoomDesire rd in desiresDictionary.Values)
+            {
+                foreach (RoomDesire rd2 in rd.incompatibleWith)
+                {
+                    rd2.incompatibleWith.Add(rd);
+                }
+            }
+
+            //make all floors incompatible with each other, unless they upgrade to or from each other
+            foreach (RoomDesire desireA in terrainDesires)
+            {
+                foreach (RoomDesire desireB in terrainDesires)
+                {
+                    // Skip if either contains the other in upgradesFrom
+                    if (desireA.upgradesFrom.Contains(desireB) || desireB.upgradesFrom.Contains(desireA))
+                        continue;
+
+                    // Add each other to incompatibleWith
+                    desireA.incompatibleWith.Add(desireB);
+                    desireB.incompatibleWith.Add(desireA);
                 }
             }
         }
