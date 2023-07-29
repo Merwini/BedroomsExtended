@@ -22,7 +22,7 @@ namespace nuff.PersonalizedBedrooms
 
         public List<RoomDesireDef> upgradesFrom;
 
-        public List<RoomDesireDef> incompatibleWith;
+        public List<RoomDesireDef> incompatibleWith = new List<RoomDesireDef>();
 
         public List<ThingRequirement> thingRequirements;
 

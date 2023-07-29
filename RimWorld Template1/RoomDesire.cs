@@ -40,7 +40,7 @@ namespace nuff.PersonalizedBedrooms
             this.desireTier = def.desireTier;
             for (int i = 0; i < def.incompatibleWith.Count; i++)
             {
-                incompatibleWith.Add(RoomDesireMain.desiresDictionary.TryGetValue(def));
+                incompatibleWith.Add(RoomDesireMain.desiresDictionary.TryGetValue(def.incompatibleWith[i]));
             }
             //TODO finish filling fields
             if (def.workerClass.IsSubclassOf(typeof(RoomDesireWorker)))
