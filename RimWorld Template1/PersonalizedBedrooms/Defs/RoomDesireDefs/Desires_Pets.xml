@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<nuff.PersonalizedBedrooms.RoomDesireDef Abstract="True" Name="DesirePetsBase">
+		<workerClass>nuff.PersonalizedBedrooms.RoomDesireWorker_Pets</workerClass>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
+
+	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesirePetsBase">
+		<defName>npb_roompets_tierone</defName>
+		<label>I want a pet that sleeps in my room</label>
+		<description>1 pet bed with a pet assigned to it</description>
+		<desireTier>1</desireTier>
+		<minimumQuantity>1</minimumQuantity>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
+
+	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesirePetsBase">
+		<defName>npb_roompets_tiertwo</defName>
+		<label>I want two pets that sleep in my room</label>
+		<description>2 pet beds with pets assigned to them</description>
+		<desireTier>2</desireTier>
+		<minimumQuantity>2</minimumQuantity>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
+
+	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesirePetsBase">
+		<defName>npb_roompets_tierthree</defName>
+		<label>I want four pets that sleep in my room</label>
+		<description>4 pet beds with pets assigned to them</description>
+		<desireTier>3</desireTier>
+		<minimumQuantity>4</minimumQuantity>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
+
+	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesirePetsBase">
+		<defName>npb_roompets_tierfour</defName>
+		<label>I want seven pets that sleep in my room</label>
+		<description>7 pet beds with pets assigned to them</description>
+		<desireTier>4</desireTier>
+		<minimumQuantity>7</minimumQuantity>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
+
+	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesirePetsBase">
+		<defName>npb_roompets_tierfive</defName>
+		<label>I want eleven pets that sleep in my room</label>
+		<description>11 pet beds with pets assigned to them</description>
+		<desireTier>5</desireTier>
+		<minimumQuantity>11</minimumQuantity>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
+</Defs>

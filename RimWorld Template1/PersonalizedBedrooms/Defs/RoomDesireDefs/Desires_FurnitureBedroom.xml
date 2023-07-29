@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
+		<defName>npb_bedroomcombo_tierone</defName>
+		<label>I want an endtable</label>
+		<description>1 endtable</description>
+		<desireTier>1</desireTier>
+		<thingRequirements>
+			<li>
+				<satisfyingThings>
+					<li>EndTable</li>
+				</satisfyingThings>
+			</li>
+		</thingRequirements>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
+
+	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
+		<defName>npb_bedroomcombo_tiertwo</defName>
+		<label>I want an endtable and a dresser</label>
+		<description>1 endtable and 1 dresser</description>
+		<desireTier>2</desireTier>
+		<thingRequirements>
+			<li>
+				<satisfyingThings>
+					<li>EndTable</li>
+				</satisfyingThings>
+			</li>
+			<li>
+				<satisfyingThings>
+					<li>Dresser</li>
+				</satisfyingThings>
+			</li>
+		</thingRequirements>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
+
+	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
+		<defName>npb_bedroomcombo_tierthree</defName>
+		<label>I want two endtables and two dressers</label>
+		<description>2 endtable and 2 dresser</description>
+		<desireTier>3</desireTier>
+		<thingRequirements>
+			<li>
+				<satisfyingThings>
+					<li>EndTable</li>
+				</satisfyingThings>
+				<quantityNeeded>2</quantityNeeded>
+			</li>
+			<li>
+				<satisfyingThings>
+					<li>Dresser</li>
+				</satisfyingThings>
+				<quantityNeeded>2</quantityNeeded>
+			</li>
+		</thingRequirements>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
+
+	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
+		<defName>npb_bedroomcombo_tierfour</defName>
+		<label>I want two endtables and two dressers, all excellent quality or better</label>
+		<description>2 endtable and 2 dresser, excellent or better</description>
+		<desireTier>4</desireTier>
+		<thingRequirements>
+			<li>
+				<satisfyingThings>
+					<li>EndTable</li>
+				</satisfyingThings>
+				<quantityNeeded>2</quantityNeeded>
+				<minimumQuality>Excellent</minimumQuality>
+			</li>
+			<li>
+				<satisfyingThings>
+					<li>Dresser</li>
+				</satisfyingThings>
+				<quantityNeeded>2</quantityNeeded>
+				<minimumQuality>Excellent</minimumQuality>
+			</li>
+		</thingRequirements>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
+
+	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
+		<defName>npb_bedroomcombo_tierfive</defName>
+		<label>I want two endtables and two dressers, all masterwork quality or better</label>
+		<description>2 endtable and 2 dresser, excellent or better</description>
+		<desireTier>5</desireTier>
+		<thingRequirements>
+			<li>
+				<satisfyingThings>
+					<li>EndTable</li>
+				</satisfyingThings>
+				<quantityNeeded>2</quantityNeeded>
+				<minimumQuality>Masterwork</minimumQuality>
+			</li>
+			<li>
+				<satisfyingThings>
+					<li>Dresser</li>
+				</satisfyingThings>
+				<quantityNeeded>2</quantityNeeded>
+				<minimumQuality>Masterwork</minimumQuality>
+			</li>
+		</thingRequirements>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
+</Defs>

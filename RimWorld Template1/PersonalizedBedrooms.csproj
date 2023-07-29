@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddCompToHumanlikes.cs" />
+    <Compile Include="DebugAction_ResetDesires.cs" />
     <Compile Include="RoomDesireMain.cs" />
     <Compile Include="RoomDesireWorkers\RoomDesireWorker.cs" />
     <Compile Include="Gizmo_DesireTracker.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="RoomDesireWorkers\RoomDesireWorker_BeautyMax.cs" />
     <Compile Include="RoomDesireWorkers\RoomDesireWorker_Default.cs" />
     <Compile Include="RoomDesireWorkers\RoomDesireWorker_Floor.cs" />
+    <Compile Include="RoomDesireWorkers\RoomDesireWorker_Pets.cs" />
     <Compile Include="RoomDesireWorkers\RoomDesireWorker_Quality.cs" />
     <Compile Include="RoomDesireWorkers\RoomDesireWorker_RoomSize.cs" />
     <Compile Include="RoomDesireWorkers\RoomDesireWorker_Thing.cs" />
@@ -103,8 +105,11 @@
     <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_BeautyAvg.xml" />
     <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_BeautyMax.xml" />
     <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_Floors.xml" />
-    <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_FurnitureCombo.xml" />
+    <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_FurnitureBedroom.xml" />
+    <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_FurniturePlants.xml" />
+    <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_FurnitureJoy.xml" />
     <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_Generic.xml" />
+    <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_Pets.xml" />
     <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_RoomSize.xml" />
     <Content Include="PersonalizedBedrooms\Defs\RoomDesireDefs\Desires_RoomQuality.xml" />
     <Content Include="TODO list.txt" />

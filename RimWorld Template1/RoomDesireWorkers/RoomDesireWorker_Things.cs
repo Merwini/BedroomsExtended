@@ -20,7 +20,6 @@ namespace nuff.PersonalizedBedrooms
             List<Thing> thingsInRoom = comp.thingsInRoomCache;
             List<ThingRequirement> thingRequirements = parent.thingRequirements;
             int requirementsTotal = thingRequirements.Count;
-            Log.Warning("requirementsTotal: " + requirementsTotal.ToString());
             int requirementsMet = 0;
             for (int i = 0; i < requirementsTotal; i++)
             {
@@ -34,7 +33,6 @@ namespace nuff.PersonalizedBedrooms
                     Thing thing = thingsInRoom[j];
                     if (!tagMode)
                     {
-                        Log.Warning("Debug 1");
                         if (tr.satisfyingThingsExpanded.Contains(thing.def))
                         {
                             if (thing.TryGetComp<CompQuality>() is CompQuality compQuality)
@@ -52,7 +50,6 @@ namespace nuff.PersonalizedBedrooms
                     }
                     else
                     {
-                        Log.Warning("Debug 2");
                         List<string> thingTags = thing.def.tradeTags;
                         for (int k = 0; k < thingTags.Count; k++)
                         {
@@ -62,13 +59,11 @@ namespace nuff.PersonalizedBedrooms
                                 {
                                     if (compQuality.Quality >= minimumQuality)
                                     {
-                                        Log.Warning("Debug 3");
                                         quantityFound++;
                                     }
                                 }
                                 else
                                 {
-                                    Log.Warning("Debug 4");
                                     quantityFound++;
                                 }
                             }
@@ -77,10 +72,8 @@ namespace nuff.PersonalizedBedrooms
                 }
                 if (quantityFound >= quantityNeeded)
                 {
-                    Log.Warning("Debug 5");
                     requirementsMet++;
                 }
-                Log.Warning("TagMode: " + tagMode.ToString());
             }
             return requirementsMet == requirementsTotal;
         }

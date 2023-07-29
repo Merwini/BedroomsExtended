@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	
+	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
+		<defName>npb_plantpot_tierone</defName>
+		<label>I want a plant pot</label>
+		<description>1 plant pot</description>
+		<desireTier>1</desireTier>
+		<thingRequirements>
+			<li>
+				<satisfyingThings>
+					<li>PlantPot</li>
+				</satisfyingThings>
+				<quantityNeeded>1</quantityNeeded>
+			</li>
+		</thingRequirements>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
+
+	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
+		<defName>npb_plantpot_tiertwo</defName>
+		<label>I want two plant pots</label>
+		<description>2 plant pot</description>
+		<desireTier>2</desireTier>
+		<thingRequirements>
+			<li>
+				<satisfyingThings>
+					<li>PlantPot</li>
+				</satisfyingThings>
+				<quantityNeeded>2</quantityNeeded>
+			</li>
+		</thingRequirements>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
+
+	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
+		<defName>npb_plantpot_tierthree</defName>
+		<label>I want four plant pots</label>
+		<description>4 plant pot</description>
+		<desireTier>3</desireTier>
+		<thingRequirements>
+			<li>
+				<satisfyingThings>
+					<li>PlantPot</li>
+				</satisfyingThings>
+				<quantityNeeded>4</quantityNeeded>
+			</li>
+		</thingRequirements>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
+
+	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
+		<defName>npb_plantpot_tierfour</defName>
+		<label>I want eight plant pots</label>
+		<description>8 plant pot</description>
+		<desireTier>4</desireTier>
+		<thingRequirements>
+			<li>
+				<satisfyingThings>
+					<li>PlantPot</li>
+				</satisfyingThings>
+				<quantityNeeded>8</quantityNeeded>
+			</li>
+		</thingRequirements>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
+
+	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
+		<defName>npb_plantpot_tierfive</defName>
+		<label>I want sixteen plant pots</label>
+		<description>16 plant pot</description>
+		<desireTier>5</desireTier>
+		<thingRequirements>
+			<li>
+				<satisfyingThings>
+					<li>PlantPot</li>
+				</satisfyingThings>
+				<quantityNeeded>16</quantityNeeded>
+			</li>
+		</thingRequirements>
+	</nuff.PersonalizedBedrooms.RoomDesireDef>
+</Defs>

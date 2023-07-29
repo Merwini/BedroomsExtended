@@ -78,18 +78,27 @@ namespace nuff.PersonalizedBedrooms
                 }
             }
 
+            
             List<string> sat2 = def.satisfyingTerrains ?? new List<string>();
             for (int i = 0; i < sat2.Count; i++)
             {
+                bool foundTerrain = false;
                 foreach (TerrainDef td in RoomDesireMain.terrainHashSet)
                 {
                     //Implied Defs for carpet start with the
                     if (td.defName.StartsWith(sat2[i]))
                     {
                         satisfyingTerrainsExpanded.Add(td);
+                        foundTerrain = true;
                     }
                 }
+                if (!foundTerrain)
+                {
+                    Log.Error("Error: Desire \"" + label + "\". Unable to find terrain \"" + sat2[i] + "\".");
+                }
             }
+
+
             def.registeredDesire = this;
         }
 
