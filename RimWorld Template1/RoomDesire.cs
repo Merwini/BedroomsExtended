@@ -17,7 +17,7 @@ namespace nuff.PersonalizedBedrooms
 
         //public RoomDesireDef DesDef => def as RoomDesireDef;
 
-        RoomDesireWorker worker;
+        internal RoomDesireWorker worker;
 
         //will be filled by RoomDesireMain
         internal HashSet<RoomDesire> upgradesFrom = new HashSet<RoomDesire>();
@@ -25,7 +25,7 @@ namespace nuff.PersonalizedBedrooms
         //will be filled by RoomDesireMain
         internal HashSet<RoomDesire> incompatibleWith = new HashSet<RoomDesire>();
 
-        internal List<ThingRequirement> requiredThings = new List<ThingRequirement>();
+        internal List<ThingRequirement> thingRequirements = new List<ThingRequirement>();
 
         internal HashSet<ThingDef> satisfyingThingsExpanded = new HashSet<ThingDef>();
 
@@ -38,6 +38,10 @@ namespace nuff.PersonalizedBedrooms
             this.def = def;
             this.label = def.label;
             this.desireTier = def.desireTier;
+            for (int i = 0; i < def.incompatibleWith.Count; i++)
+            {
+                incompatibleWith.Add(RoomDesireMain.desiresDictionary.TryGetValue(def));
+            }
             //TODO finish filling fields
             if (def.workerClass.IsSubclassOf(typeof(RoomDesireWorker)))
             {
@@ -48,27 +52,19 @@ namespace nuff.PersonalizedBedrooms
                 Log.Error("Error: RoomDesire \"" + label + "\" has an invalid RoomDesireWorker. Using default worker.");
                 worker = (RoomDesireWorker)Activator.CreateInstance(typeof(RoomDesireWorker_Default), this);
             }
-            //obsolete: now uses RequiredThings
-            /*
-            List<ThingDef> sat1 = def.satisfyingThings ?? new List<ThingDef>();
-            for (int i = 0; i < sat1.Count; i++)
-            {
-                satisfyingThingsExpanded.Add(sat1[i]);
-            }
-            */
 
-            List<ThingRequirement> requiredThings = def.requiredThings;
-            if (!requiredThings.NullOrEmpty<ThingRequirement>())
+            thingRequirements = def.thingRequirements;
+            if (!thingRequirements.NullOrEmpty<ThingRequirement>())
             {
-                for (int i = 0; i < requiredThings.Count; i++)
+                for (int i = 0; i < thingRequirements.Count; i++)
                 {
-                    List<ThingDef> satisfyingThings = requiredThings[i].satisfyingThings;
-                    List<string> satisfyingTags = requiredThings[i].satisfyingTags;
+                    List<ThingDef> satisfyingThings = thingRequirements[i].satisfyingThings;
+                    List<string> satisfyingTags = thingRequirements[i].satisfyingTags;
                     if (!satisfyingThings.NullOrEmpty<ThingDef>())
                     {
                         for (int j = 0; j < satisfyingThings.Count; j++)
                         {
-                            requiredThings[i].satisfyingThingsExpanded.Add(satisfyingThings[j]);
+                            thingRequirements[i].satisfyingThingsExpanded.Add(satisfyingThings[j]);
                         }
                     }
                     else if (!satisfyingTags.NullOrEmpty<string>())
@@ -100,17 +96,6 @@ namespace nuff.PersonalizedBedrooms
         public bool IsMet(Pawn pawn, Room room)
         {
             return worker.IsMet(pawn, room);
-        }
-
-        public HashSet<ThingDef> fillSatisfyingThings()
-        {
-            HashSet<ThingDef> satS = new HashSet<ThingDef>();
-            List<ThingDef> satL = this.def.satisfyingThings;
-            for (int i = 0; i < satL.Count; i++)
-            {
-                satS.Add(satL[i]);
-            }
-            return satS;
         }
 
         public void ExposeData()

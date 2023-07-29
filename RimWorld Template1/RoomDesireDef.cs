@@ -24,7 +24,7 @@ namespace nuff.PersonalizedBedrooms
 
         public List<RoomDesireDef> incompatibleWith;
 
-        public List<ThingRequirement> requiredThings;
+        public List<ThingRequirement> thingRequirements;
 
         public List<ThingDef> satisfyingThings;
 

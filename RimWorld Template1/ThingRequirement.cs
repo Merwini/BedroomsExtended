@@ -12,7 +12,7 @@ namespace nuff.PersonalizedBedrooms
     {
         public List<ThingDef> satisfyingThings;
 
-        public HashSet<ThingDef> satisfyingThingsExpanded;
+        public HashSet<ThingDef> satisfyingThingsExpanded = new HashSet<ThingDef>();
 
         public List<string> satisfyingTags;
 
