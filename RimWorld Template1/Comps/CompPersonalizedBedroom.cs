@@ -58,10 +58,8 @@ namespace nuff.PersonalizedBedrooms
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
             List<Gizmo> result = new List<Gizmo>();
-            if (desiresGenerated)
-            {
-                result.Add(new Gizmo_DesireTracker(this.parent as Pawn));
-            }
+            result.Add(new Gizmo_DesireTracker(this.parent as Pawn));
+
             return result;
         }
 
