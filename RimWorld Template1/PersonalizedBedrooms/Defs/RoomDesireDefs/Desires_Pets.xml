@@ -6,40 +6,40 @@
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesirePetsBase">
 		<defName>npb_roompets_tierone</defName>
-		<label>I want a pet that sleeps in my room</label>
-		<description>1 pet bed with a pet assigned to it</description>
+		<label>a housepet</label>
+		<description>I want an animal that sleeps in my room, in a sleeping spot, pet bed, or pet box.</description>
 		<desireTier>1</desireTier>
 		<minimumQuantity>1</minimumQuantity>
 	</nuff.PersonalizedBedrooms.RoomDesireDef>
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesirePetsBase">
 		<defName>npb_roompets_tiertwo</defName>
-		<label>I want two pets that sleep in my room</label>
-		<description>2 pet beds with pets assigned to them</description>
+		<label>two housepets</label>
+		<description>I want two animals that sleep in my room, in a sleeping spot, pet bed, or pet box.</description>
 		<desireTier>2</desireTier>
 		<minimumQuantity>2</minimumQuantity>
 	</nuff.PersonalizedBedrooms.RoomDesireDef>
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesirePetsBase">
 		<defName>npb_roompets_tierthree</defName>
-		<label>I want four pets that sleep in my room</label>
-		<description>4 pet beds with pets assigned to them</description>
+		<label>four housepets</label>
+		<description>I want four animals that sleep in my room, in a sleeping spot, pet bed, or pet box.</description>
 		<desireTier>3</desireTier>
 		<minimumQuantity>4</minimumQuantity>
 	</nuff.PersonalizedBedrooms.RoomDesireDef>
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesirePetsBase">
 		<defName>npb_roompets_tierfour</defName>
-		<label>I want seven pets that sleep in my room</label>
-		<description>7 pet beds with pets assigned to them</description>
+		<label>seven housepets</label>
+		<description>I want seven animals that sleep in my room, in a sleeping spot, pet bed, or pet box.</description>
 		<desireTier>4</desireTier>
 		<minimumQuantity>7</minimumQuantity>
 	</nuff.PersonalizedBedrooms.RoomDesireDef>
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesirePetsBase">
 		<defName>npb_roompets_tierfive</defName>
-		<label>I want eleven pets that sleep in my room</label>
-		<description>11 pet beds with pets assigned to them</description>
+		<label>eleven housepets</label>
+		<description>I want eleven animals that sleep in my room, in a sleeping spot, pet bed, or pet box.</description>
 		<desireTier>5</desireTier>
 		<minimumQuantity>11</minimumQuantity>
 	</nuff.PersonalizedBedrooms.RoomDesireDef>

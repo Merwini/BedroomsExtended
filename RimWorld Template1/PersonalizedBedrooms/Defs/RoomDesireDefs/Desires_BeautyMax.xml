@@ -6,7 +6,7 @@
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireBeautyMaxBase">
 		<defName>npb_beautymax_tierone</defName>
-		<label>I want something pretty in my room</label>
+		<label>something with beauty 50+</label>
 		<description>I want something in my room with a beauty score of at least 50.</description>
 		<desireTier>1</desireTier>
 		<minimumQuantity>50</minimumQuantity>
@@ -14,7 +14,7 @@
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireBeautyMaxBase">
 		<defName>npb_beautymax_tiertwo</defName>
-		<label>I want something beautiful in my room</label>
+		<label>something with beauty 100+</label>
 		<description>I want something in my room with a beauty score of at least 100.</description>
 		<desireTier>2</desireTier>
 		<minimumQuantity>100</minimumQuantity>
@@ -22,7 +22,7 @@
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireBeautyMaxBase">
 		<defName>npb_beautymax_tierthree</defName>
-		<label>I want something very beautiful in my room</label>
+		<label>something with beauty score 600+</label>
 		<description>I want something in my room with a beauty score of at least 600.</description>
 		<desireTier>3</desireTier>
 		<minimumQuantity>600</minimumQuantity>
@@ -30,7 +30,7 @@
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireBeautyMaxBase">
 		<defName>npb_beautymax_tierfour</defName>
-		<label>I want something extremely beautiful in my room</label>
+		<label>something with beauty score 1600+</label>
 		<description>I want something in my room with a beauty score of at least 1600.</description>
 		<desireTier>4</desireTier>
 		<minimumQuantity>1600</minimumQuantity>
@@ -38,7 +38,7 @@
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireBeautyMaxBase">
 		<defName>npb_beautymax_tierfive</defName>
-		<label>I want something unbelievably beautiful in my room</label>
+		<label>something with beauty score 3000+</label>
 		<description>I want something in my room with a beauty score of at least 3000.</description>
 		<desireTier>5</desireTier>
 		<minimumQuantity>3000</minimumQuantity>

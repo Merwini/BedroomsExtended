@@ -2,8 +2,8 @@
 <Defs>
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
 		<defName>npb_bedroomcombo_tierone</defName>
-		<label>I want an endtable</label>
-		<description>1 endtable</description>
+		<label>an endtable</label>
+		<description>I want an endtable to put my stuff on. Material and quality don't matter.</description>
 		<desireTier>1</desireTier>
 		<thingRequirements>
 			<li>
@@ -16,8 +16,8 @@
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
 		<defName>npb_bedroomcombo_tiertwo</defName>
-		<label>I want an endtable and a dresser</label>
-		<description>1 endtable and 1 dresser</description>
+		<label>an endtable and a dresser</label>
+		<description>I want an endtable and a dresser. Material and quality don't matter.</description>
 		<desireTier>2</desireTier>
 		<thingRequirements>
 			<li>
@@ -35,8 +35,8 @@
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
 		<defName>npb_bedroomcombo_tierthree</defName>
-		<label>I want two endtables and two dressers</label>
-		<description>2 endtable and 2 dresser</description>
+		<label>two endtables and two dressers</label>
+		<description>I want lots of furniture. Two endtables for my bed, and two dresser. Material and quality don't matter.</description>
 		<desireTier>3</desireTier>
 		<thingRequirements>
 			<li>
@@ -56,8 +56,8 @@
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
 		<defName>npb_bedroomcombo_tierfour</defName>
-		<label>I want two endtables and two dressers, all excellent quality or better</label>
-		<description>2 endtable and 2 dresser, excellent or better</description>
+		<label>two endtables and two dressers, excellent quality or better</label>
+		<description>I want lots of furniture. Two endtables and two dressers. Material doesn't matter, but they need to be excellent quality or better.</description>
 		<desireTier>4</desireTier>
 		<thingRequirements>
 			<li>
@@ -79,8 +79,8 @@
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
 		<defName>npb_bedroomcombo_tierfive</defName>
-		<label>I want two endtables and two dressers, all masterwork quality or better</label>
-		<description>2 endtable and 2 dresser, excellent or better</description>
+		<label>two endtables and two dressers, masterwork quality or better</label>
+		<description>I want lots of furniture. Two endtables and two dressers. Material doesn't matter, but they need to be masterwork quality or better.</description>
 		<desireTier>5</desireTier>
 		<thingRequirements>
 			<li>

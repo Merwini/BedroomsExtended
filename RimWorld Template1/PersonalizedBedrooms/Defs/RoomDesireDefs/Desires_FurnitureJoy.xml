@@ -6,8 +6,8 @@
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
 		<defName>npb_joycombo_tierone</defName>
-		<label>I want my own hoopstone ring or horseshoes pin</label>
-		<description>A hoopstone ring or horseshoes pin</description>
+		<label>hoopstone ring or horseshoes pin</label>
+		<description>I want my own hoopstone ring or horseshoes pin, in case I get bored.</description>
 		<desireTier>1</desireTier>
 		<thingRequirements>
 			<li>
@@ -21,8 +21,8 @@
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
 		<defName>npb_joycombo_tiertwo</defName>
-		<label>I want my own chess or UR board, and a chair to play from</label>
-		<description>A chess table or Game of Ur table, and a dining chair or better.</description>
+		<label>chess or Ur board, and a stool or better</label>
+		<description>I want my own game board, and somewhere to sit while I play. A stool, dining chair, or armchair are all acceptable.</description>
 		<desireTier>2</desireTier>
 		<thingRequirements>
 			<li>
@@ -43,8 +43,8 @@
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
 		<defName>npb_joycombo_tierthree</defName>
-		<label>I want my own billiards table</label>
-		<description>A billiards table.</description>
+		<label>billiards table</label>
+		<description>I want my own billiards table.</description>
 		<desireTier>3</desireTier>
 		<thingRequirements>
 			<li>
@@ -57,8 +57,8 @@
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
 		<defName>npb_joycombo_tierfour</defName>
-		<label>I want my own poker table, with 4 real chairs</label>
-		<description>A poker table and 4 dining chairs or armchairs.</description>
+		<label>poker table, and 4 dining chairs or better</label>
+		<description>I want to host my own poker games. A poker table and four dining chairs or armchairs.</description>
 		<desireTier>4</desireTier>
 		<thingRequirements>
 			<li>
@@ -71,15 +71,15 @@
 					<li>DiningChair</li>
 					<li>Armchair</li>
 				</satisfyingThings>
-				<quantityNeeded>3</quantityNeeded>
+				<quantityNeeded>4</quantityNeeded>
 			</li>
 		</thingRequirements>
 	</nuff.PersonalizedBedrooms.RoomDesireDef>
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
 		<defName>npb_tvcombo_tierthree</defName>
-		<label>I want my own tv, and a real chair to watch it from</label>
-		<description>Even a tube tv and a dining chair is fine.</description>
+		<label>a TV, and a dining chair or armchair</label>
+		<description>I want my own TV. I'll settle for a tube television and a dining chair, but bigger is also better.</description>
 		<desireTier>3</desireTier>
 		<thingRequirements>
 			<li>
@@ -100,8 +100,8 @@
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
 		<defName>npb_tvcombo_tierfour</defName>
-		<label>I want my own flatscreen tv, and an armchair to watch it from</label>
-		<description>A flatscreen or megascreen tv, and an armchair.</description>
+		<label>a flatscreen tv, and an armchair</label>
+		<description>I want my own flatscreen TV, and a comfy armchair to watch it from.</description>
 		<desireTier>4</desireTier>
 		<thingRequirements>
 			<li>
@@ -120,8 +120,8 @@
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
 		<defName>npb_tvcombo_tierfive</defName>
-		<label>I want my own megascreen tv, and three armchairs to watch it from</label>
-		<description>A megascreen tv, three armchairs.</description>
+		<label>a megascreen tv, and three armchairs</label>
+		<description>I want my own home theater. I'll settle for nothing short of a megascreen television, with three armchairs to watch from.</description>
 		<desireTier>5</desireTier>
 		<thingRequirements>
 			<li>

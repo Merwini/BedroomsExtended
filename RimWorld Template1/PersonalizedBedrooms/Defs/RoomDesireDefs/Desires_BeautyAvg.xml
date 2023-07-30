@@ -6,35 +6,35 @@
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireRoomBeautyAvgBase">
 		<defName>npb_beautyavg_tierone</defName>
-		<label>I want my bedroom to be pretty</label>
+		<label>pretty bedroom</label>
 		<description>I want my bedroom to be pretty.</description>
 		<desireTier>1</desireTier>
 	</nuff.PersonalizedBedrooms.RoomDesireDef>
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireRoomBeautyAvgBase">
 		<defName>npb_beautyavg_tiertwo</defName>
-		<label>I want my bedroom to be beautiful</label>
+		<label>beautiful bedroom</label>
 		<description>I want my bedroom to be beautiful.</description>
 		<desireTier>2</desireTier>
 	</nuff.PersonalizedBedrooms.RoomDesireDef>
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireRoomBeautyAvgBase">
 		<defName>npb_beautyavg_tierthree</defName>
-		<label>I want my bedroom to be very beautiful</label>
+		<label>very beautiful bedroom</label>
 		<description>I want my bedroom to be very beautiful.</description>
 		<desireTier>3</desireTier>
 	</nuff.PersonalizedBedrooms.RoomDesireDef>
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireRoomBeautyAvgBase">
 		<defName>npb_beautyavg_tierfour</defName>
-		<label>I want my bedroom to be extremely beautiful</label>
+		<label>extremely beautiful bedroom</label>
 		<description>I want my bedroom to be extremely beautiful.</description>
 		<desireTier>4</desireTier>
 	</nuff.PersonalizedBedrooms.RoomDesireDef>
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireRoomBeautyAvgBase">
 		<defName>npb_beautyavg_tierfive</defName>
-		<label>I want my bedroom to be unbelievably beautiful</label>
+		<label>unbelievably beautiful bedroom</label>
 		<description>I want my bedroom to be unbelievably beautiful.</description>
 		<desireTier>5</desireTier>
 	</nuff.PersonalizedBedrooms.RoomDesireDef>
