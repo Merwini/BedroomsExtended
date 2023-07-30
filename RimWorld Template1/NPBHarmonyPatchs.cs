@@ -44,7 +44,6 @@ namespace nuff.PersonalizedBedrooms
                     if (codes[i].opcode == OpCodes.Ldsfld
                         && codes[i].operand.ToString().Contains("Impressiveness"))
                     {
-                        //todo
                         startIndex = i;
                         foundStartIndex = true;
                         continue;

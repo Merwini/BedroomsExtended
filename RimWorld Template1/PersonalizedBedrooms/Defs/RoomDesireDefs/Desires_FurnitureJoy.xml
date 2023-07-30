@@ -6,7 +6,7 @@
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
 		<defName>npb_joycombo_tierone</defName>
-		<label>hoopstone ring or horseshoes pin</label>
+		<label>a hoopstone ring or horseshoes pin</label>
 		<description>I want my own hoopstone ring or horseshoes pin, in case I get bored.</description>
 		<desireTier>1</desireTier>
 		<thingRequirements>
@@ -21,7 +21,7 @@
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
 		<defName>npb_joycombo_tiertwo</defName>
-		<label>chess or Ur board, and a stool or better</label>
+		<label>a chess or Ur board, and a stool or better</label>
 		<description>I want my own game board, and somewhere to sit while I play. A stool, dining chair, or armchair are all acceptable.</description>
 		<desireTier>2</desireTier>
 		<thingRequirements>
@@ -43,7 +43,7 @@
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
 		<defName>npb_joycombo_tierthree</defName>
-		<label>billiards table</label>
+		<label>a billiards table</label>
 		<description>I want my own billiards table.</description>
 		<desireTier>3</desireTier>
 		<thingRequirements>
@@ -57,7 +57,7 @@
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
 		<defName>npb_joycombo_tierfour</defName>
-		<label>poker table, and 4 dining chairs or better</label>
+		<label>poker table, and four dining chairs or better</label>
 		<description>I want to host my own poker games. A poker table and four dining chairs or armchairs.</description>
 		<desireTier>4</desireTier>
 		<thingRequirements>

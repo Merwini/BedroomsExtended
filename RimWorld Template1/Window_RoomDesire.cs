@@ -135,11 +135,11 @@ namespace nuff.PersonalizedBedrooms
                         //Rect iconRect = new Rect(labelRect.xMax - 30f, labelRect.y, 24f, 24f);
                         Widgets.Label(labelRect, entry.Key.label);
 
+                        TooltipHandler.TipRegion(labelRect, entry.Key.def.description);
                         // Draw the icon
                         //Texture2D iconTexture = ContentFinder<Texture2D>.Get("UI/Icons/QuestionMark");
                         //GUI.DrawTexture(iconRect, iconTexture);
-                        TooltipHandler.TipRegion(labelRect, entry.Key.def.description);
-
+                        //TODO UI/Buttons/InfoButton to open window showing all acceptable defs
 
                         list.Gap(list.verticalSpacing);
                     }

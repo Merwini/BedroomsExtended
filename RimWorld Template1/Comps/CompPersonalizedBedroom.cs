@@ -325,12 +325,14 @@ namespace nuff.PersonalizedBedrooms
                 {
                     roomDesireDefNames.Add(desire.def.defName);
                 }
-                Scribe_Collections.Look(ref roomDesireDefNames, "roomDesireHashSet", LookMode.Value);
+                Scribe_Collections.Look(ref roomDesireDefNames, "roomDesireDefNames", LookMode.Value);
             }
             else if (Scribe.mode == LoadSaveMode.LoadingVars)
             {
-                Scribe_Collections.Look(ref roomDesireDefNames, "roomDesireHashSet", LookMode.Value);
-                roomDesireHashSet.Clear();
+                Scribe_Collections.Look(ref roomDesireDefNames, "roomDesireDefNames", LookMode.Value);
+                if (roomDesireDefNames == null)
+                    roomDesireDefNames = new List<string>();
+                
                 foreach (string defName in roomDesireDefNames)
                 {
                     RoomDesireDef desireDef = DefDatabase<RoomDesireDef>.GetNamed(defName, errorOnFail: false);
