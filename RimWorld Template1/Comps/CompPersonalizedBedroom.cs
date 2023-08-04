@@ -18,8 +18,8 @@ namespace nuff.PersonalizedBedrooms
         public float cachedBedroomWealth = -1;
         public int cachedThoughtStage = -1;
 
-        internal int minimumDesiresMetPerTier = 3;
-        internal int generatedDesiresPerTier = 5;
+        internal int minimumDesiresMetPerTier = 2;
+        internal int generatedDesiresPerTier = 3;
 
         internal Pawn pawn;
 
@@ -137,28 +137,13 @@ namespace nuff.PersonalizedBedrooms
             List<RoomDesire> selectedDesires = new List<RoomDesire>();
             int desiresSelected = 0;
 
-            //TODO logic
-            //TODO early return if desiresDesired == 0?
+            //early return to save some time
+            if (desiresDesired <= 0)
+                return selectedDesires;
 
-            //populate list of possibleDesires, check against already selected desires for imcompatibility
+            //populate list of possibleDesires, check against already selected desires for incompatibility
             foreach (RoomDesire desire in RoomDesireMain.desiresByTier[desireTier])
             {
-                //this block is not needed, incompatibility is checked during TrySelectDesire
-                /*
-                bool canAdd = true;
-                foreach (RoomDesire desire2 in roomDesireHashSet)
-                {
-                    if (desire2.incompatibleWith.Contains(desire))
-                    {
-                        canAdd = false;
-                        break;
-                    }
-                }
-                if (canAdd)
-                {
-                    possibleDesires.Add(desire);
-                }
-                */
                 possibleDesires.Add(desire);
             }
 

@@ -48,30 +48,30 @@
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
 		<defName>npb_plantpot_tierfour</defName>
-		<label>eight plant pots</label>
-		<description>I want eight houseplants.</description>
+		<label>six plant pots</label>
+		<description>I want six houseplants.</description>
 		<desireTier>4</desireTier>
 		<thingRequirements>
 			<li>
 				<satisfyingThings>
 					<li>PlantPot</li>
 				</satisfyingThings>
-				<quantityNeeded>8</quantityNeeded>
+				<quantityNeeded>6</quantityNeeded>
 			</li>
 		</thingRequirements>
 	</nuff.PersonalizedBedrooms.RoomDesireDef>
 
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFurnitureComboBase">
 		<defName>npb_plantpot_tierfive</defName>
-		<label>sixteen plant pots</label>
-		<description>I want sixteen houseplants.</description>
+		<label>eight plant pots</label>
+		<description>I want eight houseplants.</description>
 		<desireTier>5</desireTier>
 		<thingRequirements>
 			<li>
 				<satisfyingThings>
 					<li>PlantPot</li>
 				</satisfyingThings>
-				<quantityNeeded>16</quantityNeeded>
+				<quantityNeeded>8</quantityNeeded>
 			</li>
 		</thingRequirements>
 	</nuff.PersonalizedBedrooms.RoomDesireDef>
