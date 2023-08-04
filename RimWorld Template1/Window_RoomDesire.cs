@@ -151,6 +151,7 @@ namespace nuff.PersonalizedBedrooms
                 list.Label("Error: pawn has no current bedroom");
             }
 
+            GUI.color = Color.white;
             Rect closeButtonRect = new Rect(inRect.width / 2f - CloseButSize.x / 2f, inRect.height - CloseButSize.y, CloseButSize.x, CloseButSize.y);
             if (Widgets.ButtonText(closeButtonRect, "Close"))
             {
