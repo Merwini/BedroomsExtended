@@ -28,8 +28,12 @@ namespace nuff.PersonalizedBedrooms
                     cellsSatisfying++;
                 }
             }
-
-            return (cellsSatisfying / cellsTotal) >= (cellsPercentageNeeded / 100);
+            Log.Warning(parent.def.defName);
+            Log.Warning(cellsPercentageNeeded.ToString());
+            Log.Warning(((float)cellsPercentageNeeded /100).ToString());
+            Log.Warning(cellsTotal.ToString());
+            Log.Warning(cellsSatisfying.ToString());
+            return ((float)cellsSatisfying / (float)cellsTotal) >= ((float)cellsPercentageNeeded / 100);
         }
     }
 }
