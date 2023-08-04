@@ -16,25 +16,20 @@ namespace nuff.PersonalizedBedrooms
 
         public override bool IsMet(Pawn pawn, Room room)
         {
-            //TODO
-            bool isMet = true;
-
-            HashSet<TerrainDef> terrainSet = new HashSet<TerrainDef>();
+            HashSet<TerrainDef> satisfyingTerrains = parent.satisfyingTerrainsExpanded;
+            int cellsPercentageNeeded = parent.def.minimumQuantity;
+            int cellsSatisfying = 0;
+            int cellsTotal = 0;
             foreach (IntVec3 cell in room.Cells)
             {
-                terrainSet.Add(cell.GetTerrain(room.Map));
-            }
-            HashSet<TerrainDef> satisfyingTerrains = parent.satisfyingTerrainsExpanded;
-            foreach (TerrainDef td in terrainSet)
-            {
-                if (!satisfyingTerrains.Contains(td))
+                cellsTotal++;
+                if (satisfyingTerrains.Contains(cell.GetTerrain(room.Map)))
                 {
-                    isMet = false;
-                    break;
+                    cellsSatisfying++;
                 }
             }
 
-            return isMet;
+            return (cellsSatisfying / cellsTotal) >= (cellsPercentageNeeded / 100);
         }
     }
 }

@@ -2,6 +2,7 @@
 <Defs>
 	<nuff.PersonalizedBedrooms.RoomDesireDef Abstract="True" Name="DesireFloorBase">
 		<workerClass>nuff.PersonalizedBedrooms.RoomDesireWorker_Floor</workerClass>
+		<minimumQuantity>50</minimumQuantity>
 	</nuff.PersonalizedBedrooms.RoomDesireDef>
 	
 	<!-- TIER ONE -->
@@ -13,6 +14,7 @@
 		<satisfyingTerrains>
 			<li>StrawMatting</li>
 		</satisfyingTerrains>
+		<minimumQuantity>100</minimumQuantity>
 	</nuff.PersonalizedBedrooms.RoomDesireDef>
 
 	<!-- TIER TWO -->
@@ -26,7 +28,7 @@
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFloorBaseTwo">
 		<defName>npb_woodfloored_tiertwo</defName>
 		<label>wooden floor</label>
-		<description>I love the look and feel of wooden floors.</description>
+		<description>I want at least half my bedroom to be wooden floor.</description>
 		<satisfyingTerrains>
 			<li>WoodPlankFloor</li>
 		</satisfyingTerrains>
@@ -35,7 +37,7 @@
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFloorBaseTwo">
 		<defName>npb_stonefloored_tiertwo</defName>
 		<label>stone floor</label>
-		<description>I don't care what kind of stone it is, or whether its flagstones or bricks, I just want some nice solid stone under my feet.</description>
+		<description>I want at least half my bedroom to be a stone floor. I don't care what kind of stone, or whether it's flagstone or bricks.</description>
 		<satisfyingTerrains>
 			<!--All the flagstone stone floors start with Flagstone, so this is fine-->
 			<li>Flagstone</li>
@@ -45,7 +47,7 @@
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFloorBaseTwo">
 		<defName>npb_metalfloored_tiertwo</defName>
 		<label>concrete or metal floor</label>
-		<description>Other floors are too hard to clean. I want a nice, smooth floor. Any one of: concrete, paved tile, steel, silver, gold, sterile tile.</description>
+		<description>I want at least half my bedroom to be a concrete or metallic floor. Concrete, paved tile, steel, silver, sterile, or gold are all fine.</description>
 		<satisfyingTerrains>
 			<li>Concrete</li>
 			<li>PavedTile</li>
@@ -62,7 +64,7 @@
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFloorBaseThree">
 		<defName>npb_stonefloored_tierthree</defName>
 		<label>brick floor</label>
-		<description>Stone is nice, but flagstones are too rough. I want some well-cut stone bricks for my floor.</description>
+		<description>I want at least half my bedroom to be brick floor. I don't care what kind of stone.</description>
 		<satisfyingTerrains>
 			<!--Even though they all start with Tile, that's generic enough that I'm worried about accidental adds if I just use Tile-->
 			<li>TileSandstone</li>
@@ -79,7 +81,7 @@
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFloorBaseThree">
 		<defName>npb_metalfloored_tierthree</defName>
 		<label>metal floor</label>
-		<description>A floor made of real metal. Steel, silver, gold, or sterile tile are all acceptable.</description>
+		<description>I want at least half my bedroom to be a metallic floor. Steel, silver, sterile, or gold.</description>
 		<satisfyingTerrains>
 			<li>MetalTile</li>
 		</satisfyingTerrains>
@@ -107,7 +109,7 @@
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFloorBaseFour">
 		<defName>npb_metalfloored_tierfour</defName>
 		<label>silver metal floor or better</label>
-		<description>A floor made of some fancy metal, silver or gold.</description>
+		<description>I want at least half my bedroom to be a fancy metallic floor. Silver or gold.</description>
 		<satisfyingTerrains>
 			<li>SilverTile</li>
 		</satisfyingTerrains>
@@ -119,7 +121,7 @@
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFloorBaseFour">
 		<defName>npb_sterilefloored_tierfour</defName>
 		<label>sterile tile floor</label>
-		<description>I want cleanest floor the world has ever known. Sterile tile, fit for surgery.</description>
+		<description>I want at least half my bedroom to be sterile tile.</description>
 		<satisfyingTerrains>
 			<li>SterileTile</li>
 		</satisfyingTerrains>
@@ -139,7 +141,7 @@
 	<nuff.PersonalizedBedrooms.RoomDesireDef ParentName="DesireFloorBaseFive">
 		<defName>npb_metalfloored_tierfive</defName>
 		<label>gold metal floor</label>
-		<description>I'll settle for nothing short of gold, because I'm worth it.</description>
+		<description>I want at least half my bedroom to be the finest of metallic floors. Only gold will do.</description>
 		<satisfyingTerrains>
 			<li>GoldTile</li>
 		</satisfyingTerrains>
