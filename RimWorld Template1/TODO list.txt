@@ -1,4 +1,6 @@
-﻿Change vanilla room traits to use new moodlet system
+﻿Make RoomDesireSet save and load ref to pawn, or at least set pawn = parent as Pawn
+
+Change vanilla room traits to use new moodlet system
 	Greedy - Requires an extra desire option to be met per each tier (4/5?)
 	Jealous - Unhappy if anyone has a higher moodlet tier
 	Ascetic - will use a separate set of desires? 
